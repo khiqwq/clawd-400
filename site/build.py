@@ -406,7 +406,7 @@ def main():
     site.zip_all(recs)
     site.api(recs, built)
     site.index(recs, built)
-    for f in ('app.js', 'app.css', 'detail.css'):
+    for f in ('app.js', 'app.css', 'detail.css', 'drag-test.html'):
         shutil.copyfile(os.path.join(HERE, 'src', f), os.path.join(a.out, f))
     site.write('favicon.svg', favicon())
     og = os.path.join(ROOT, 'films', 'covers', 'og.png')

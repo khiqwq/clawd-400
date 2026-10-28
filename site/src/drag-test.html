@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>拖拽测试 · Clawd 400</title>
+<meta name="robots" content="noindex">
+<style>
+:root { --bg: #f4f2ec; --ink: #1a1714; --mute: #6f675f; --line: #e3ded4; --accent: #e37e52; color-scheme: light dark;
+  font: 15px/1.55 ui-sans-serif, system-ui, "Microsoft YaHei", sans-serif; }
+@media (prefers-color-scheme: dark) { :root { --bg: #131313; --ink: #ece8e3; --mute: #a39b93; --line: #2c2a28; } }
+body { margin: 0 auto; max-width: 1000px; padding: 24px 16px 48px; background: var(--bg); color: var(--ink); }
+h1 { font-size: 22px; margin: 0 0 6px; } p { margin: 4px 0; color: var(--mute); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 20px; }
+figure { margin: 0; border: 1px solid var(--line); border-radius: 14px; padding: 10px; background: #fff1; }
+figure img { width: 100%; aspect-ratio: 1; image-rendering: pixelated; background: #fbf9f4; border-radius: 8px; display: block; }
+figcaption { margin-top: 8px; font-size: 13px; } figcaption b { color: var(--accent); font-size: 18px; margin-right: 6px; }
+figcaption code { font-size: 12px; color: var(--mute); word-break: break-all; }
+</style></head><body>
+<h1>拖拽测试</h1>
+<p>把下面每张图分别拖进 QQ 的聊天输入框（不用发送），记下哪几个编号能成功出现在输入框里。</p>
+<p>也可以顺便拖到桌面，看看保存出来的文件名。</p>
+<div class="grid" id="grid"></div>
+<script>
+const ASCII = 'gifs/101_emo_confused.gif', ZH = '一脸问号.gif', ZH_ENC = 'zh/' + encodeURIComponent(ZH);
+const abs = u => new URL(u, location.href).href;
+const cases = [
+  ['A', '英文地址，浏览器原生拖拽', ASCII, null],
+  ['B', '中文编码地址，原生拖拽（网站当前做法）', ZH_ENC, null],
+  ['C', '中文原文地址，原生拖拽', 'zh/' + ZH, null],
+  ['D', '英文地址 + DownloadURL 中文名（网站最初做法）', ASCII, dt => dt.setData('DownloadURL', `image/gif:${ZH}:${abs(ASCII)}`)],
+  ['E', 'blob 地址，原生拖拽', 'blob', null],
+  ['F', 'data 地址，原生拖拽', 'data', null],
+];
+(async () => {
+  const bytes = await (await fetch(ASCII)).blob();
+  const blobUrl = URL.createObjectURL(bytes);
+  const dataUrl = await new Promise(r => { const f = new FileReader(); f.onload = () => r(f.result); f.readAsDataURL(bytes); });
+  const grid = document.getElementById('grid');
+  for (const [id, label, src, drag] of cases) {
+    const fig = document.createElement('figure'), img = document.createElement('img');
+    img.src = src === 'blob' ? blobUrl : src === 'data' ? dataUrl : src;
+    img.alt = id;
+    if (drag) img.addEventListener('dragstart', e => drag(e.dataTransfer));
+    const cap = document.createElement('figcaption');
+    cap.innerHTML = `<b>${id}</b>${label}<br><code>${src === 'blob' || src === 'data' ? src + ':…' : decodeURIComponent(src)}</code>`;
+    fig.append(img, cap); grid.append(fig);
+  }
+})();
+</script>
+</body></html>
