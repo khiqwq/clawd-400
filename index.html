@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Clawd 400</title>
+<style>
+:root{--bg:#faf8f5;--card:#fff;--ink:#2b2622;--mute:#8a817a;--line:#ece6df;--tile:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#1b1917;--card:#24211f;--ink:#f1ece6;--mute:#9b928a;--line:#34302c;--tile:#24211f}}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.4 system-ui,"Microsoft YaHei",sans-serif}
+header{padding:24px 16px 8px;max-width:1400px;margin:auto}
+h1{margin:0 0 4px;font-size:22px} header p{margin:0;color:var(--mute)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+input{flex:1;min-width:180px;max-width:360px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+button{padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);cursor:pointer}
+button.on{outline:2px solid #e37e52}
+main{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;padding:8px 16px 32px;max-width:1400px;margin:auto}
+h2{grid-column:1/-1;margin:20px 0 0;font-size:17px} h2 small{color:var(--mute);font-weight:400}
+figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px}
+img{width:100%;aspect-ratio:1;image-rendering:pixelated;display:block;background:var(--tile);border-radius:6px}
+body.dark img{background:#1c1a19} body.light img{background:#fff}
+body.check img{background:repeating-conic-gradient(#ddd 0 25%,#fff 0 50%) 0 0/24px 24px}
+figcaption{font-size:12px;margin-top:4px} figcaption span{color:var(--mute)}
+</style></head><body>
+<header><h1>Clawd 400</h1><p>400 个像素动图 · 480×480 · 透明背景</p>
+<div class="bar"><input id="q" placeholder="搜索 / search…">
+<button data-bg="">跟随主题</button><button data-bg="light">白底</button><button data-bg="dark">深色底</button><button data-bg="check">透明格</button></div></header>
+<main id="g"><h2>视频重现 · Video loops <small>40</small></h2>
+<figure><img src="gifs/001_cook_veggies.gif" loading="lazy" alt="Chef flips veggies"><figcaption><b>001</b> 颠锅炒青菜<br><span>Chef flips veggies</span></figcaption></figure>
+<figure><img src="gifs/002_cook_pancake.gif" loading="lazy" alt="Pancake flip"><figcaption><b>002</b> 翻松饼<br><span>Pancake flip</span></figcaption></figure>
+<figure><img src="gifs/003_cook_egg.gif" loading="lazy" alt="Frying an egg"><figcaption><b>003</b> 煎鸡蛋<br><span>Frying an egg</span></figcaption></figure>
+<figure><img src="gifs/004_chef_arrives.gif" loading="lazy" alt="Chef hat drops on"><figcaption><b>004</b> 跳进厨房戴帽子<br><span>Chef hat drops on</span></figcaption></figure>
+<figure><img src="gifs/005_stir_soup.gif" loading="lazy" alt="Stirring soup"><figcaption><b>005</b> 搅汤<br><span>Stirring soup</span></figcaption></figure>
+<figure><img src="gifs/006_vibe_headphones.gif" loading="lazy" alt="Headphone vibes"><figcaption><b>006</b> 戴耳机摇摆<br><span>Headphone vibes</span></figcaption></figure>
+<figure><img src="gifs/007_vibe_nod.gif" loading="lazy" alt="Headphone nod"><figcaption><b>007</b> 戴耳机点头<br><span>Headphone nod</span></figcaption></figure>
+<figure><img src="gifs/008_phones_on.gif" loading="lazy" alt="Putting headphones on"><figcaption><b>008</b> 戴上耳机<br><span>Putting headphones on</span></figcaption></figure>
+<figure><img src="gifs/009_astro_float.gif" loading="lazy" alt="Astronaut float"><figcaption><b>009</b> 太空漂浮<br><span>Astronaut float</span></figcaption></figure>
+<figure><img src="gifs/010_astro_spin.gif" loading="lazy" alt="Zero-g spin"><figcaption><b>010</b> 失重翻转<br><span>Zero-g spin</span></figcaption></figure>
+<figure><img src="gifs/011_astro_wave.gif" loading="lazy" alt="Astronaut wave"><figcaption><b>011</b> 宇航员挥手<br><span>Astronaut wave</span></figcaption></figure>
+<figure><img src="gifs/012_astro_planet.gif" loading="lazy" alt="Floating by a planet"><figcaption><b>012</b> 星球旁漂浮<br><span>Floating by a planet</span></figcaption></figure>
+<figure><img src="gifs/013_astro_flag.gif" loading="lazy" alt="Flag on the moon"><figcaption><b>013</b> 月球插旗<br><span>Flag on the moon</span></figcaption></figure>
+<figure><img src="gifs/014_guitar_rock.gif" loading="lazy" alt="Electric guitar"><figcaption><b>014</b> 弹电吉他<br><span>Electric guitar</span></figcaption></figure>
+<figure><img src="gifs/015_guitar_solo.gif" loading="lazy" alt="Guitar solo"><figcaption><b>015</b> 吉他独奏<br><span>Guitar solo</span></figcaption></figure>
+<figure><img src="gifs/016_guitar_chill.gif" loading="lazy" alt="Acoustic strum"><figcaption><b>016</b> 木吉他弹唱<br><span>Acoustic strum</span></figcaption></figure>
+<figure><img src="gifs/017_rock_jump.gif" loading="lazy" alt="Rock star jump"><figcaption><b>017</b> 摇滚跳跃<br><span>Rock star jump</span></figcaption></figure>
+<figure><img src="gifs/018_desk_typing.gif" loading="lazy" alt="Typing at the desk"><figcaption><b>018</b> 书桌打字<br><span>Typing at the desk</span></figcaption></figure>
+<figure><img src="gifs/019_desk_think.gif" loading="lazy" alt="Thinking at the desk"><figcaption><b>019</b> 书桌前思考<br><span>Thinking at the desk</span></figcaption></figure>
+<figure><img src="gifs/020_desk_coffee.gif" loading="lazy" alt="Coffee at the desk"><figcaption><b>020</b> 书桌喝咖啡<br><span>Coffee at the desk</span></figcaption></figure>
+<figure><img src="gifs/021_desk_flail.gif" loading="lazy" alt="Desk flail"><figcaption><b>021</b> 从椅子上蹦起<br><span>Desk flail</span></figcaption></figure>
+<figure><img src="gifs/022_read_glasses.gif" loading="lazy" alt="Reading with glasses"><figcaption><b>022</b> 戴眼镜看书<br><span>Reading with glasses</span></figcaption></figure>
+<figure><img src="gifs/023_read_doze.gif" loading="lazy" alt="Dozing over a book"><figcaption><b>023</b> 看书打瞌睡<br><span>Dozing over a book</span></figcaption></figure>
+<figure><img src="gifs/024_read_stack.gif" loading="lazy" alt="Reading by a book stack"><figcaption><b>024</b> 书堆旁阅读<br><span>Reading by a book stack</span></figcaption></figure>
+<figure><img src="gifs/025_armchair_arrive.gif" loading="lazy" alt="Hop into the armchair"><figcaption><b>025</b> 跳上扶手椅<br><span>Hop into the armchair</span></figcaption></figure>
+<figure><img src="gifs/026_walk_in.gif" loading="lazy" alt="Walking in"><figcaption><b>026</b> 走进房间<br><span>Walking in</span></figcaption></figure>
+<figure><img src="gifs/027_walk_out_door.gif" loading="lazy" alt="Out the door"><figcaption><b>027</b> 开门离开<br><span>Out the door</span></figcaption></figure>
+<figure><img src="gifs/028_stairs_climb.gif" loading="lazy" alt="Climbing stairs"><figcaption><b>028</b> 爬楼梯<br><span>Climbing stairs</span></figcaption></figure>
+<figure><img src="gifs/029_teleport.gif" loading="lazy" alt="Spin teleport"><figcaption><b>029</b> 转圈传送<br><span>Spin teleport</span></figcaption></figure>
+<figure><img src="gifs/030_space_drop.gif" loading="lazy" alt="Drop-in landing"><figcaption><b>030</b> 从天而降<br><span>Drop-in landing</span></figcaption></figure>
+<figure><img src="gifs/031_stretch_tall.gif" loading="lazy" alt="Stretch hop"><figcaption><b>031</b> 拉长跳<br><span>Stretch hop</span></figcaption></figure>
+<figure><img src="gifs/032_bubble_wand.gif" loading="lazy" alt="Blowing bubbles"><figcaption><b>032</b> 吹泡泡<br><span>Blowing bubbles</span></figcaption></figure>
+<figure><img src="gifs/033_bubble_big.gif" loading="lazy" alt="One big bubble"><figcaption><b>033</b> 吹大泡泡<br><span>One big bubble</span></figcaption></figure>
+<figure><img src="gifs/034_tea_talk.gif" loading="lazy" alt="Tea and chatter"><figcaption><b>034</b> 喝茶聊天<br><span>Tea and chatter</span></figcaption></figure>
+<figure><img src="gifs/035_tea_sip.gif" loading="lazy" alt="Sip of tea"><figcaption><b>035</b> 抿一口茶<br><span>Sip of tea</span></figcaption></figure>
+<figure><img src="gifs/036_idea_bulb.gif" loading="lazy" alt="Idea!"><figcaption><b>036</b> 灵光一闪<br><span>Idea!</span></figcaption></figure>
+<figure><img src="gifs/037_idea_ding.gif" loading="lazy" alt="Lightbulb ding"><figcaption><b>037</b> 灯泡点亮<br><span>Lightbulb ding</span></figcaption></figure>
+<figure><img src="gifs/038_fidget_spinner.gif" loading="lazy" alt="Fidget spinner"><figcaption><b>038</b> 指尖陀螺<br><span>Fidget spinner</span></figcaption></figure>
+<figure><img src="gifs/039_spinner_head.gif" loading="lazy" alt="Spinner on head"><figcaption><b>039</b> 头顶陀螺<br><span>Spinner on head</span></figcaption></figure>
+<figure><img src="gifs/040_turn_around.gif" loading="lazy" alt="Turning around"><figcaption><b>040</b> 转身看看<br><span>Turning around</span></figcaption></figure>
+<h2>夏日篇 · Summer <small>13</small></h2>
+<figure><img src="gifs/041_dj_deck.gif" loading="lazy" alt="DJ at the decks"><figcaption><b>041</b> 打碟<br><span>DJ at the decks</span></figcaption></figure>
+<figure><img src="gifs/042_dj_vinyl.gif" loading="lazy" alt="Showing off a vinyl"><figcaption><b>042</b> 举起黑胶<br><span>Showing off a vinyl</span></figcaption></figure>
+<figure><img src="gifs/043_soccer_keepy.gif" loading="lazy" alt="Keepy-uppy"><figcaption><b>043</b> 颠足球<br><span>Keepy-uppy</span></figcaption></figure>
+<figure><img src="gifs/044_soccer_header.gif" loading="lazy" alt="Header bounces"><figcaption><b>044</b> 头顶球<br><span>Header bounces</span></figcaption></figure>
+<figure><img src="gifs/045_hardhat_hide.gif" loading="lazy" alt="Hiding under a hard hat"><figcaption><b>045</b> 躲进安全帽<br><span>Hiding under a hard hat</span></figcaption></figure>
+<figure><img src="gifs/046_hardhat_wrench.gif" loading="lazy" alt="Wrench on the girder"><figcaption><b>046</b> 工地拧螺丝<br><span>Wrench on the girder</span></figcaption></figure>
+<figure><img src="gifs/047_girder_walk.gif" loading="lazy" alt="Girder stroll"><figcaption><b>047</b> 钢梁上散步<br><span>Girder stroll</span></figcaption></figure>
+<figure><img src="gifs/048_picnic_basket.gif" loading="lazy" alt="Picnic basket walk"><figcaption><b>048</b> 提野餐篮<br><span>Picnic basket walk</span></figcaption></figure>
+<figure><img src="gifs/049_pool_float.gif" loading="lazy" alt="Pool float"><figcaption><b>049</b> 泳池漂漂<br><span>Pool float</span></figcaption></figure>
+<figure><img src="gifs/050_pool_peek.gif" loading="lazy" alt="Peeking over shades"><figcaption><b>050</b> 拉下墨镜偷看<br><span>Peeking over shades</span></figcaption></figure>
+<figure><img src="gifs/051_sandboard.gif" loading="lazy" alt="Sandboarding"><figcaption><b>051</b> 沙丘滑板<br><span>Sandboarding</span></figcaption></figure>
+<figure><img src="gifs/052_surf_wipeout.gif" loading="lazy" alt="Surf and wipeout"><figcaption><b>052</b> 冲浪翻车<br><span>Surf and wipeout</span></figcaption></figure>
+<figure><img src="gifs/053_shades_drop.gif" loading="lazy" alt="Shades drop"><figcaption><b>053</b> 墨镜从天而降<br><span>Shades drop</span></figcaption></figure>
+<h2>情绪 · Feelings <small>60</small></h2>
+<figure><img src="gifs/054_emo_joy_burst.gif" loading="lazy" alt="Bursting with joy"><figcaption><b>054</b> 开心炸裂<br><span>Bursting with joy</span></figcaption></figure>
+<figure><img src="gifs/055_emo_happy_skip.gif" loading="lazy" alt="Happy skip"><figcaption><b>055</b> 蹦蹦跳跳<br><span>Happy skip</span></figcaption></figure>
+<figure><img src="gifs/056_emo_victory_dance.gif" loading="lazy" alt="Victory dance"><figcaption><b>056</b> 胜利之舞<br><span>Victory dance</span></figcaption></figure>
+<figure><img src="gifs/057_emo_hyper_bounce.gif" loading="lazy" alt="Bouncing off the walls"><figcaption><b>057</b> 兴奋弹墙<br><span>Bouncing off the walls</span></figcaption></figure>
+<figure><img src="gifs/058_emo_excited_vibrate.gif" loading="lazy" alt="Vibrating with excitement"><figcaption><b>058</b> 激动到发抖<br><span>Vibrating with excitement</span></figcaption></figure>
+<figure><img src="gifs/059_emo_wish_star.gif" loading="lazy" alt="Wishing on a star"><figcaption><b>059</b> 对流星许愿<br><span>Wishing on a star</span></figcaption></figure>
+<figure><img src="gifs/060_emo_proud_chest.gif" loading="lazy" alt="Proud chest-out"><figcaption><b>060</b> 骄傲挺胸<br><span>Proud chest-out</span></figcaption></figure>
+<figure><img src="gifs/061_emo_smug_shades.gif" loading="lazy" alt="Smug shades"><figcaption><b>061</b> 得意墨镜<br><span>Smug shades</span></figcaption></figure>
+<figure><img src="gifs/062_emo_thumbs_up.gif" loading="lazy" alt="Thumbs up"><figcaption><b>062</b> 点个赞<br><span>Thumbs up</span></figcaption></figure>
+<figure><img src="gifs/063_emo_wink.gif" loading="lazy" alt="Cheeky wink"><figcaption><b>063</b> 眨眼放电<br><span>Cheeky wink</span></figcaption></figure>
+<figure><img src="gifs/064_emo_ticklish.gif" loading="lazy" alt="Ticklish"><figcaption><b>064</b> 怕痒<br><span>Ticklish</span></figcaption></figure>
+<figure><img src="gifs/065_emo_giggle.gif" loading="lazy" alt="Giggle"><figcaption><b>065</b> 捂嘴偷笑<br><span>Giggle</span></figcaption></figure>
+<figure><img src="gifs/066_emo_laugh_roll.gif" loading="lazy" alt="Rolling with laughter"><figcaption><b>066</b> 笑到打滚<br><span>Rolling with laughter</span></figcaption></figure>
+<figure><img src="gifs/067_emo_self_hug.gif" loading="lazy" alt="Self hug"><figcaption><b>067</b> 抱抱自己<br><span>Self hug</span></figcaption></figure>
+<figure><img src="gifs/068_emo_blow_kiss.gif" loading="lazy" alt="Blowing a kiss"><figcaption><b>068</b> 飞吻<br><span>Blowing a kiss</span></figcaption></figure>
+<figure><img src="gifs/069_emo_lovestruck.gif" loading="lazy" alt="Love-struck"><figcaption><b>069</b> 花痴心动<br><span>Love-struck</span></figcaption></figure>
+<figure><img src="gifs/070_emo_heart_pound.gif" loading="lazy" alt="Pounding heart"><figcaption><b>070</b> 小鹿乱撞<br><span>Pounding heart</span></figcaption></figure>
+<figure><img src="gifs/071_emo_daydream.gif" loading="lazy" alt="Daydreaming"><figcaption><b>071</b> 发白日梦<br><span>Daydreaming</span></figcaption></figure>
+<figure><img src="gifs/072_emo_awe.gif" loading="lazy" alt="In awe"><figcaption><b>072</b> 惊叹<br><span>In awe</span></figcaption></figure>
+<figure><img src="gifs/073_emo_meditate.gif" loading="lazy" alt="Meditation calm"><figcaption><b>073</b> 冥想平静<br><span>Meditation calm</span></figcaption></figure>
+<figure><img src="gifs/074_emo_calm_down.gif" loading="lazy" alt="Deep breaths"><figcaption><b>074</b> 深呼吸冷静<br><span>Deep breaths</span></figcaption></figure>
+<figure><img src="gifs/075_emo_jiayou.gif" loading="lazy" alt="Cheering sign"><figcaption><b>075</b> 加油!<br><span>Cheering sign</span></figcaption></figure>
+<figure><img src="gifs/076_emo_nihao.gif" loading="lazy" alt="Hello wave"><figcaption><b>076</b> 你好呀<br><span>Hello wave</span></figcaption></figure>
+<figure><img src="gifs/077_emo_high_five.gif" loading="lazy" alt="High five"><figcaption><b>077</b> 击掌庆祝<br><span>High five</span></figcaption></figure>
+<figure><img src="gifs/078_emo_comfort.gif" loading="lazy" alt="Comforting a friend"><figcaption><b>078</b> 摸头安慰<br><span>Comforting a friend</span></figcaption></figure>
+<figure><img src="gifs/079_emo_furious_stomp.gif" loading="lazy" alt="Furious stomp"><figcaption><b>079</b> 气到跺脚<br><span>Furious stomp</span></figcaption></figure>
+<figure><img src="gifs/080_emo_boiling.gif" loading="lazy" alt="Boiling over"><figcaption><b>080</b> 气到冒烟<br><span>Boiling over</span></figcaption></figure>
+<figure><img src="gifs/081_emo_tantrum.gif" loading="lazy" alt="Tantrum"><figcaption><b>081</b> 撒泼打滚<br><span>Tantrum</span></figcaption></figure>
+<figure><img src="gifs/082_emo_grumpy_pout.gif" loading="lazy" alt="Grumpy pout"><figcaption><b>082</b> 哼!不理你<br><span>Grumpy pout</span></figcaption></figure>
+<figure><img src="gifs/083_emo_puffed_cheeks.gif" loading="lazy" alt="Puffed cheeks"><figcaption><b>083</b> 鼓气包<br><span>Puffed cheeks</span></figcaption></figure>
+<figure><img src="gifs/084_emo_jealous.gif" loading="lazy" alt="Jealous side-eye"><figcaption><b>084</b> 吃醋斜眼<br><span>Jealous side-eye</span></figcaption></figure>
+<figure><img src="gifs/085_emo_sulk_cloud.gif" loading="lazy" alt="Sulking under a cloud"><figcaption><b>085</b> 头顶乌云<br><span>Sulking under a cloud</span></figcaption></figure>
+<figure><img src="gifs/086_emo_sob_fountain.gif" loading="lazy" alt="Sobbing fountains"><figcaption><b>086</b> 嚎啕大哭<br><span>Sobbing fountains</span></figcaption></figure>
+<figure><img src="gifs/087_emo_pretty_please.gif" loading="lazy" alt="Pretty please"><figcaption><b>087</b> 可怜巴巴<br><span>Pretty please</span></figcaption></figure>
+<figure><img src="gifs/088_emo_heartbreak.gif" loading="lazy" alt="Heartbreak"><figcaption><b>088</b> 心碎了<br><span>Heartbreak</span></figcaption></figure>
+<figure><img src="gifs/089_emo_lonely.gif" loading="lazy" alt="Lonely spotlight"><figcaption><b>089</b> 孤单<br><span>Lonely spotlight</span></figcaption></figure>
+<figure><img src="gifs/090_emo_sad_shuffle.gif" loading="lazy" alt="Dejected shuffle"><figcaption><b>090</b> 垂头丧气<br><span>Dejected shuffle</span></figcaption></figure>
+<figure><img src="gifs/091_emo_gloom.gif" loading="lazy" alt="Gloomy aura"><figcaption><b>091</b> 阴郁<br><span>Gloomy aura</span></figcaption></figure>
+<figure><img src="gifs/092_emo_bored_sigh.gif" loading="lazy" alt="Bored sigh"><figcaption><b>092</b> 无聊叹气<br><span>Bored sigh</span></figcaption></figure>
+<figure><img src="gifs/093_emo_impatient.gif" loading="lazy" alt="Impatient tapping"><figcaption><b>093</b> 不耐烦<br><span>Impatient tapping</span></figcaption></figure>
+<figure><img src="gifs/094_emo_shock_jump.gif" loading="lazy" alt="Shocked jump"><figcaption><b>094</b> 吓一跳<br><span>Shocked jump</span></figcaption></figure>
+<figure><img src="gifs/095_emo_relieved.gif" loading="lazy" alt="Phew, relieved"><figcaption><b>095</b> 松了口气<br><span>Phew, relieved</span></figcaption></figure>
+<figure><img src="gifs/096_emo_scared.gif" loading="lazy" alt="Scared shaking"><figcaption><b>096</b> 吓得发抖<br><span>Scared shaking</span></figcaption></figure>
+<figure><img src="gifs/097_emo_nervous_sweat.gif" loading="lazy" alt="Nervous sweat"><figcaption><b>097</b> 紧张冒汗<br><span>Nervous sweat</span></figcaption></figure>
+<figure><img src="gifs/098_emo_panic_circles.gif" loading="lazy" alt="Panic circles"><figcaption><b>098</b> 慌得团团转<br><span>Panic circles</span></figcaption></figure>
+<figure><img src="gifs/099_emo_mind_blown.gif" loading="lazy" alt="Mind blown"><figcaption><b>099</b> 脑洞大开<br><span>Mind blown</span></figcaption></figure>
+<figure><img src="gifs/100_emo_dizzy.gif" loading="lazy" alt="Dizzy"><figcaption><b>100</b> 晕头转向<br><span>Dizzy</span></figcaption></figure>
+<figure><img src="gifs/101_emo_confused.gif" loading="lazy" alt="Confused head tilt"><figcaption><b>101</b> 一脸问号<br><span>Confused head tilt</span></figcaption></figure>
+<figure><img src="gifs/102_emo_awkward.gif" loading="lazy" alt="Awkward silence"><figcaption><b>102</b> 尴尬沉默<br><span>Awkward silence</span></figcaption></figure>
+<figure><img src="gifs/103_emo_cringe.gif" loading="lazy" alt="Cringe"><figcaption><b>103</b> 嫌弃<br><span>Cringe</span></figcaption></figure>
+<figure><img src="gifs/104_emo_embarrassed.gif" loading="lazy" alt="Flustered"><figcaption><b>104</b> 羞到冒烟<br><span>Flustered</span></figcaption></figure>
+<figure><img src="gifs/105_emo_sneeze.gif" loading="lazy" alt="Sneeze"><figcaption><b>105</b> 打喷嚏<br><span>Sneeze</span></figcaption></figure>
+<figure><img src="gifs/106_emo_hiccup.gif" loading="lazy" alt="Hiccups"><figcaption><b>106</b> 打嗝<br><span>Hiccups</span></figcaption></figure>
+<figure><img src="gifs/107_emo_facepalm.gif" loading="lazy" alt="Facepalm"><figcaption><b>107</b> 捂脸无语<br><span>Facepalm</span></figcaption></figure>
+<figure><img src="gifs/108_emo_eye_roll.gif" loading="lazy" alt="Eye roll"><figcaption><b>108</b> 翻白眼<br><span>Eye roll</span></figcaption></figure>
+<figure><img src="gifs/109_emo_yawn.gif" loading="lazy" alt="Big yawn"><figcaption><b>109</b> 打哈欠<br><span>Big yawn</span></figcaption></figure>
+<figure><img src="gifs/110_emo_mood_swings.gif" loading="lazy" alt="Mood swings"><figcaption><b>110</b> 情绪多变<br><span>Mood swings</span></figcaption></figure>
+<figure><img src="gifs/111_emo_mischief.gif" loading="lazy" alt="Mischievous"><figcaption><b>111</b> 坏笑搓手<br><span>Mischievous</span></figcaption></figure>
+<figure><img src="gifs/112_emo_determined.gif" loading="lazy" alt="Determined"><figcaption><b>112</b> 斗志燃烧<br><span>Determined</span></figcaption></figure>
+<figure><img src="gifs/113_emo_shy.gif" loading="lazy" alt="Shy toe scuff"><figcaption><b>113</b> 害羞画圈<br><span>Shy toe scuff</span></figcaption></figure>
+<h2>日常 · Daily life <small>59</small></h2>
+<figure><img src="gifs/114_life_pizza_munch.gif" loading="lazy" alt="Pizza munch"><figcaption><b>114</b> 大口吃披萨<br><span>Pizza munch</span></figcaption></figure>
+<figure><img src="gifs/115_life_donut_toss.gif" loading="lazy" alt="Donut ring toss"><figcaption><b>115</b> 甜甜圈套圈<br><span>Donut ring toss</span></figcaption></figure>
+<figure><img src="gifs/116_life_icecream_melt.gif" loading="lazy" alt="Melting ice cream"><figcaption><b>116</b> 冰淇淋化了<br><span>Melting ice cream</span></figcaption></figure>
+<figure><img src="gifs/117_life_noodle_slurp.gif" loading="lazy" alt="Slurping noodles"><figcaption><b>117</b> 吸溜面条<br><span>Slurping noodles</span></figcaption></figure>
+<figure><img src="gifs/118_life_boba_straw.gif" loading="lazy" alt="Boba crazy straw"><figcaption><b>118</b> 珍珠奶茶<br><span>Boba crazy straw</span></figcaption></figure>
+<figure><img src="gifs/119_life_burger_stack.gif" loading="lazy" alt="Burger stack"><figcaption><b>119</b> 叠汉堡<br><span>Burger stack</span></figcaption></figure>
+<figure><img src="gifs/120_life_sushi_belt.gif" loading="lazy" alt="Conveyor sushi"><figcaption><b>120</b> 回转寿司<br><span>Conveyor sushi</span></figcaption></figure>
+<figure><img src="gifs/121_life_watermelon_seeds.gif" loading="lazy" alt="Spitting melon seeds"><figcaption><b>121</b> 吐西瓜籽<br><span>Spitting melon seeds</span></figcaption></figure>
+<figure><img src="gifs/122_life_popcorn_catch.gif" loading="lazy" alt="Popcorn catch"><figcaption><b>122</b> 接爆米花<br><span>Popcorn catch</span></figcaption></figure>
+<figure><img src="gifs/123_life_cake_strawberry.gif" loading="lazy" alt="Strawberry on top"><figcaption><b>123</b> 先吃草莓<br><span>Strawberry on top</span></figcaption></figure>
+<figure><img src="gifs/124_life_apple_crunch.gif" loading="lazy" alt="Apple crunch"><figcaption><b>124</b> 咔嚓啃苹果<br><span>Apple crunch</span></figcaption></figure>
+<figure><img src="gifs/125_life_lemon_sour.gif" loading="lazy" alt="Sour lemon"><figcaption><b>125</b> 酸柠檬<br><span>Sour lemon</span></figcaption></figure>
+<figure><img src="gifs/126_life_soda_fizz.gif" loading="lazy" alt="Shaken soda"><figcaption><b>126</b> 摇汽水<br><span>Shaken soda</span></figcaption></figure>
+<figure><img src="gifs/127_life_dumpling_steam.gif" loading="lazy" alt="Steamed dumplings"><figcaption><b>127</b> 揭笼屉<br><span>Steamed dumplings</span></figcaption></figure>
+<figure><img src="gifs/128_life_cereal_pour.gif" loading="lazy" alt="Cereal and milk"><figcaption><b>128</b> 倒麦片<br><span>Cereal and milk</span></figcaption></figure>
+<figure><img src="gifs/129_life_toast_pop.gif" loading="lazy" alt="Toast pop catch"><figcaption><b>129</b> 吐司弹起来<br><span>Toast pop catch</span></figcaption></figure>
+<figure><img src="gifs/130_life_jelly_wobble.gif" loading="lazy" alt="Wobbly jelly"><figcaption><b>130</b> 戳果冻<br><span>Wobbly jelly</span></figcaption></figure>
+<figure><img src="gifs/131_life_smoothie_blend.gif" loading="lazy" alt="Smoothie blender"><figcaption><b>131</b> 榨果昔<br><span>Smoothie blender</span></figcaption></figure>
+<figure><img src="gifs/132_life_fridge_raid.gif" loading="lazy" alt="Fridge raid"><figcaption><b>132</b> 偷吃冰箱<br><span>Fridge raid</span></figcaption></figure>
+<figure><img src="gifs/133_life_microwave_wait.gif" loading="lazy" alt="Microwave countdown"><figcaption><b>133</b> 等微波炉<br><span>Microwave countdown</span></figcaption></figure>
+<figure><img src="gifs/134_life_cookie_jar.gif" loading="lazy" alt="Cookie jar sneak"><figcaption><b>134</b> 偷拿饼干<br><span>Cookie jar sneak</span></figcaption></figure>
+<figure><img src="gifs/135_life_sweep_floor.gif" loading="lazy" alt="Sweeping up"><figcaption><b>135</b> 扫地<br><span>Sweeping up</span></figcaption></figure>
+<figure><img src="gifs/136_life_vacuum.gif" loading="lazy" alt="Vacuuming"><figcaption><b>136</b> 吸尘器<br><span>Vacuuming</span></figcaption></figure>
+<figure><img src="gifs/137_life_washer_watch.gif" loading="lazy" alt="Watching the washer"><figcaption><b>137</b> 盯着洗衣机<br><span>Watching the washer</span></figcaption></figure>
+<figure><img src="gifs/138_life_laundry_line.gif" loading="lazy" alt="Laundry line gust"><figcaption><b>138</b> 晾衣服<br><span>Laundry line gust</span></figcaption></figure>
+<figure><img src="gifs/139_life_wash_dishes.gif" loading="lazy" alt="Washing dishes"><figcaption><b>139</b> 洗碗<br><span>Washing dishes</span></figcaption></figure>
+<figure><img src="gifs/140_life_water_plant.gif" loading="lazy" alt="Watering a droopy plant"><figcaption><b>140</b> 浇花<br><span>Watering a droopy plant</span></figcaption></figure>
+<figure><img src="gifs/141_life_trash_out.gif" loading="lazy" alt="Taking out the trash"><figcaption><b>141</b> 倒垃圾<br><span>Taking out the trash</span></figcaption></figure>
+<figure><img src="gifs/142_life_iron_shirt.gif" loading="lazy" alt="Ironing a shirt"><figcaption><b>142</b> 熨衣服<br><span>Ironing a shirt</span></figcaption></figure>
+<figure><img src="gifs/143_life_feather_duster.gif" loading="lazy" alt="Dust cloud shake-off"><figcaption><b>143</b> 掸灰尘<br><span>Dust cloud shake-off</span></figcaption></figure>
+<figure><img src="gifs/144_life_window_wipe.gif" loading="lazy" alt="Window wipe &amp; doodle"><figcaption><b>144</b> 擦窗画爱心<br><span>Window wipe &amp; doodle</span></figcaption></figure>
+<figure><img src="gifs/145_life_bubble_bath.gif" loading="lazy" alt="Bubble bath"><figcaption><b>145</b> 泡泡浴<br><span>Bubble bath</span></figcaption></figure>
+<figure><img src="gifs/146_life_brush_teeth.gif" loading="lazy" alt="Brushing teeth"><figcaption><b>146</b> 刷牙<br><span>Brushing teeth</span></figcaption></figure>
+<figure><img src="gifs/147_life_bed_sleep.gif" loading="lazy" alt="Tucked in bed"><figcaption><b>147</b> 盖被子睡觉<br><span>Tucked in bed</span></figcaption></figure>
+<figure><img src="gifs/148_life_alarm_snooze.gif" loading="lazy" alt="Snoozing the alarm"><figcaption><b>148</b> 拍闹钟<br><span>Snoozing the alarm</span></figcaption></figure>
+<figure><img src="gifs/149_life_shower_sing.gif" loading="lazy" alt="Shower singing"><figcaption><b>149</b> 洗澡唱歌<br><span>Shower singing</span></figcaption></figure>
+<figure><img src="gifs/150_life_hair_dryer.gif" loading="lazy" alt="Blow-dry"><figcaption><b>150</b> 吹风机<br><span>Blow-dry</span></figcaption></figure>
+<figure><img src="gifs/151_life_paint_easel.gif" loading="lazy" alt="Painting at the easel"><figcaption><b>151</b> 画画<br><span>Painting at the easel</span></figcaption></figure>
+<figure><img src="gifs/152_life_photo_polaroid.gif" loading="lazy" alt="Polaroid snap"><figcaption><b>152</b> 拍立得<br><span>Polaroid snap</span></figcaption></figure>
+<figure><img src="gifs/153_life_knit_scarf.gif" loading="lazy" alt="Knitting a scarf"><figcaption><b>153</b> 织围巾<br><span>Knitting a scarf</span></figcaption></figure>
+<figure><img src="gifs/154_life_fishing.gif" loading="lazy" alt="Gone fishing"><figcaption><b>154</b> 钓鱼<br><span>Gone fishing</span></figcaption></figure>
+<figure><img src="gifs/155_life_video_game.gif" loading="lazy" alt="Gaming on the TV"><figcaption><b>155</b> 打游戏<br><span>Gaming on the TV</span></figcaption></figure>
+<figure><img src="gifs/156_life_piano.gif" loading="lazy" alt="Piano player"><figcaption><b>156</b> 弹钢琴<br><span>Piano player</span></figcaption></figure>
+<figure><img src="gifs/157_life_drums.gif" loading="lazy" alt="Drum kit"><figcaption><b>157</b> 打鼓<br><span>Drum kit</span></figcaption></figure>
+<figure><img src="gifs/158_life_violin.gif" loading="lazy" alt="Violin serenade"><figcaption><b>158</b> 拉小提琴<br><span>Violin serenade</span></figcaption></figure>
+<figure><img src="gifs/159_life_karaoke.gif" loading="lazy" alt="Karaoke night"><figcaption><b>159</b> 卡拉OK<br><span>Karaoke night</span></figcaption></figure>
+<figure><img src="gifs/160_life_selfie.gif" loading="lazy" alt="Selfie poses"><figcaption><b>160</b> 自拍<br><span>Selfie poses</span></figcaption></figure>
+<figure><img src="gifs/161_life_phone_call.gif" loading="lazy" alt="Phone call"><figcaption><b>161</b> 打电话<br><span>Phone call</span></figcaption></figure>
+<figure><img src="gifs/162_life_post_letter.gif" loading="lazy" alt="Posting a letter"><figcaption><b>162</b> 寄信<br><span>Posting a letter</span></figcaption></figure>
+<figure><img src="gifs/163_life_crossword.gif" loading="lazy" alt="Newspaper crossword"><figcaption><b>163</b> 填字游戏<br><span>Newspaper crossword</span></figcaption></figure>
+<figure><img src="gifs/164_life_jigsaw.gif" loading="lazy" alt="Last jigsaw piece"><figcaption><b>164</b> 拼图<br><span>Last jigsaw piece</span></figcaption></figure>
+<figure><img src="gifs/165_life_yoyo.gif" loading="lazy" alt="Yo-yo tricks"><figcaption><b>165</b> 玩溜溜球<br><span>Yo-yo tricks</span></figcaption></figure>
+<figure><img src="gifs/166_life_kite.gif" loading="lazy" alt="Flying a kite"><figcaption><b>166</b> 放风筝<br><span>Flying a kite</span></figcaption></figure>
+<figure><img src="gifs/167_life_goldfish.gif" loading="lazy" alt="Goldfish bowl"><figcaption><b>167</b> 看金鱼<br><span>Goldfish bowl</span></figcaption></figure>
+<figure><img src="gifs/168_life_feed_pet.gif" loading="lazy" alt="Feeding the pet"><figcaption><b>168</b> 喂小宠物<br><span>Feeding the pet</span></figcaption></figure>
+<figure><img src="gifs/169_life_origami_crane.gif" loading="lazy" alt="Origami crane"><figcaption><b>169</b> 折纸鹤<br><span>Origami crane</span></figcaption></figure>
+<figure><img src="gifs/170_life_carrot_pull.gif" loading="lazy" alt="Pulling a carrot"><figcaption><b>170</b> 拔萝卜<br><span>Pulling a carrot</span></figcaption></figure>
+<figure><img src="gifs/171_life_tv_remote.gif" loading="lazy" alt="Channel surfing"><figcaption><b>171</b> 换台<br><span>Channel surfing</span></figcaption></figure>
+<figure><img src="gifs/172_life_dice_roll.gif" loading="lazy" alt="Rolling dice"><figcaption><b>172</b> 掷骰子<br><span>Rolling dice</span></figcaption></figure>
+<h2>编程 · Coding <small>60</small></h2>
+<figure><img src="gifs/173_dev_laptop_front.gif" loading="lazy" alt="Laptop typing (front)"><figcaption><b>173</b> 笔记本打字<br><span>Laptop typing (front)</span></figcaption></figure>
+<figure><img src="gifs/174_dev_terminal.gif" loading="lazy" alt="Terminal command"><figcaption><b>174</b> 终端敲命令<br><span>Terminal command</span></figcaption></figure>
+<figure><img src="gifs/175_dev_log_scroll.gif" loading="lazy" alt="Watching the logs"><figcaption><b>175</b> 盯着日志<br><span>Watching the logs</span></figcaption></figure>
+<figure><img src="gifs/176_dev_bug_squash.gif" loading="lazy" alt="Bug squash"><figcaption><b>176</b> 踩扁bug<br><span>Bug squash</span></figcaption></figure>
+<figure><img src="gifs/177_dev_bug_hunt.gif" loading="lazy" alt="Bug hunt"><figcaption><b>177</b> 放大镜找bug<br><span>Bug hunt</span></figcaption></figure>
+<figure><img src="gifs/178_dev_compile_bar.gif" loading="lazy" alt="Compiling..."><figcaption><b>178</b> 等编译<br><span>Compiling...</span></figcaption></figure>
+<figure><img src="gifs/179_dev_test_suite.gif" loading="lazy" alt="Tests go green"><figcaption><b>179</b> 测试全绿<br><span>Tests go green</span></figcaption></figure>
+<figure><img src="gifs/180_dev_deploy_rocket.gif" loading="lazy" alt="Deploy rocket"><figcaption><b>180</b> 发射上线<br><span>Deploy rocket</span></figcaption></figure>
+<figure><img src="gifs/181_dev_git_merge.gif" loading="lazy" alt="Git merge"><figcaption><b>181</b> 分支合并<br><span>Git merge</span></figcaption></figure>
+<figure><img src="gifs/182_dev_git_graph.gif" loading="lazy" alt="Commit graph"><figcaption><b>182</b> 提交图<br><span>Commit graph</span></figcaption></figure>
+<figure><img src="gifs/183_dev_refactor.gif" loading="lazy" alt="Refactor indentation"><figcaption><b>183</b> 整理缩进<br><span>Refactor indentation</span></figcaption></figure>
+<figure><img src="gifs/184_dev_rubber_duck.gif" loading="lazy" alt="Rubber duck debugging"><figcaption><b>184</b> 小黄鸭调试<br><span>Rubber duck debugging</span></figcaption></figure>
+<figure><img src="gifs/185_dev_this_is_fine.gif" loading="lazy" alt="This is fine"><figcaption><b>185</b> 服务器着火没事<br><span>This is fine</span></figcaption></figure>
+<figure><img src="gifs/186_dev_coffee_to_code.gif" loading="lazy" alt="Coffee in, code out"><figcaption><b>186</b> 咖啡变代码<br><span>Coffee in, code out</span></figcaption></figure>
+<figure><img src="gifs/187_dev_keyboard_smash.gif" loading="lazy" alt="Keyboard smash"><figcaption><b>187</b> 暴躁砸键盘<br><span>Keyboard smash</span></figcaption></figure>
+<figure><img src="gifs/188_dev_404.gif" loading="lazy" alt="404 not found"><figcaption><b>188</b> 找不到页面<br><span>404 not found</span></figcaption></figure>
+<figure><img src="gifs/189_dev_hourglass.gif" loading="lazy" alt="Hourglass wait"><figcaption><b>189</b> 沙漏等待<br><span>Hourglass wait</span></figcaption></figure>
+<figure><img src="gifs/190_dev_thinking.gif" loading="lazy" alt="Thinking..."><figcaption><b>190</b> 思考中<br><span>Thinking...</span></figcaption></figure>
+<figure><img src="gifs/191_dev_wrench_gear.gif" loading="lazy" alt="Tool use: wrench"><figcaption><b>191</b> 扳手拧齿轮<br><span>Tool use: wrench</span></figcaption></figure>
+<figure><img src="gifs/192_dev_docs_scroll.gif" loading="lazy" alt="Endless docs"><figcaption><b>192</b> 翻长文档<br><span>Endless docs</span></figcaption></figure>
+<figure><img src="gifs/193_dev_lgtm.gif" loading="lazy" alt="LGTM stamp"><figcaption><b>193</b> 盖章通过<br><span>LGTM stamp</span></figcaption></figure>
+<figure><img src="gifs/194_dev_pair_program.gif" loading="lazy" alt="Pair programming"><figcaption><b>194</b> 结对编程<br><span>Pair programming</span></figcaption></figure>
+<figure><img src="gifs/195_dev_red_pen.gif" loading="lazy" alt="Red-pen review"><figcaption><b>195</b> 红笔审代码<br><span>Red-pen review</span></figcaption></figure>
+<figure><img src="gifs/196_dev_ship_it.gif" loading="lazy" alt="Ship it!"><figcaption><b>196</b> 打包发货<br><span>Ship it!</span></figcaption></figure>
+<figure><img src="gifs/197_dev_cloud_upload.gif" loading="lazy" alt="Cloud upload"><figcaption><b>197</b> 上传到云<br><span>Cloud upload</span></figcaption></figure>
+<figure><img src="gifs/198_dev_cpu_overheat.gif" loading="lazy" alt="Overheating CPU"><figcaption><b>198</b> CPU过热<br><span>Overheating CPU</span></figcaption></figure>
+<figure><img src="gifs/199_dev_infinite_loop.gif" loading="lazy" alt="Infinite loop"><figcaption><b>199</b> 死循环<br><span>Infinite loop</span></figcaption></figure>
+<figure><img src="gifs/200_dev_todo.gif" loading="lazy" alt="Todo list"><figcaption><b>200</b> 待办打勾<br><span>Todo list</span></figcaption></figure>
+<figure><img src="gifs/201_dev_pomodoro.gif" loading="lazy" alt="Pomodoro timer"><figcaption><b>201</b> 番茄钟<br><span>Pomodoro timer</span></figcaption></figure>
+<figure><img src="gifs/202_dev_slide_chart.gif" loading="lazy" alt="Slide with a bar chart"><figcaption><b>202</b> 汇报图表<br><span>Slide with a bar chart</span></figcaption></figure>
+<figure><img src="gifs/203_dev_inbox_zero.gif" loading="lazy" alt="Inbox zero"><figcaption><b>203</b> 清空收件箱<br><span>Inbox zero</span></figcaption></figure>
+<figure><img src="gifs/204_dev_copy_paste.gif" loading="lazy" alt="Ctrl+C, Ctrl+V"><figcaption><b>204</b> 复制粘贴<br><span>Ctrl+C, Ctrl+V</span></figcaption></figure>
+<figure><img src="gifs/205_dev_task_topple.gif" loading="lazy" alt="Task pile topples"><figcaption><b>205</b> 任务堆倒塌<br><span>Task pile topples</span></figcaption></figure>
+<figure><img src="gifs/206_dev_battery.gif" loading="lazy" alt="Low battery, recharge"><figcaption><b>206</b> 没电充电<br><span>Low battery, recharge</span></figcaption></figure>
+<figure><img src="gifs/207_dev_wifi_search.gif" loading="lazy" alt="Hunting for wifi"><figcaption><b>207</b> 找信号<br><span>Hunting for wifi</span></figcaption></figure>
+<figure><img src="gifs/208_dev_matrix.gif" loading="lazy" alt="Matrix rain"><figcaption><b>208</b> 黑客帝国<br><span>Matrix rain</span></figcaption></figure>
+<figure><img src="gifs/209_dev_robot_arm.gif" loading="lazy" alt="Robot arm"><figcaption><b>209</b> 操控机械臂<br><span>Robot arm</span></figcaption></figure>
+<figure><img src="gifs/210_dev_pixel_editor.gif" loading="lazy" alt="Pixel art editor"><figcaption><b>210</b> 画像素图<br><span>Pixel art editor</span></figcaption></figure>
+<figure><img src="gifs/211_dev_git_blame.gif" loading="lazy" alt="Git blame"><figcaption><b>211</b> 甩锅<br><span>Git blame</span></figcaption></figure>
+<figure><img src="gifs/212_dev_semicolon.gif" loading="lazy" alt="The missing semicolon"><figcaption><b>212</b> 补上分号<br><span>The missing semicolon</span></figcaption></figure>
+<figure><img src="gifs/213_dev_hello_world.gif" loading="lazy" alt="Hello, World!"><figcaption><b>213</b> 你好世界<br><span>Hello, World!</span></figcaption></figure>
+<figure><img src="gifs/214_dev_kanban.gif" loading="lazy" alt="Kanban board"><figcaption><b>214</b> 看板挪卡片<br><span>Kanban board</span></figcaption></figure>
+<figure><img src="gifs/215_dev_ctrl_z.gif" loading="lazy" alt="Ctrl+Z"><figcaption><b>215</b> 撤销撤销<br><span>Ctrl+Z</span></figcaption></figure>
+<figure><img src="gifs/216_dev_key_hop.gif" loading="lazy" alt="Hopping on giant keys"><figcaption><b>216</b> 跳键盘<br><span>Hopping on giant keys</span></figcaption></figure>
+<figure><img src="gifs/217_dev_cursor_chase.gif" loading="lazy" alt="Chasing the cursor"><figcaption><b>217</b> 追鼠标<br><span>Chasing the cursor</span></figcaption></figure>
+<figure><img src="gifs/218_dev_ai_chat.gif" loading="lazy" alt="Chatting"><figcaption><b>218</b> 对话中<br><span>Chatting</span></figcaption></figure>
+<figure><img src="gifs/219_dev_pr_merged.gif" loading="lazy" alt="PR merged"><figcaption><b>219</b> 顶开合并<br><span>PR merged</span></figcaption></figure>
+<figure><img src="gifs/220_dev_cable_plug.gif" loading="lazy" alt="Plugging in the server"><figcaption><b>220</b> 插网线<br><span>Plugging in the server</span></figcaption></figure>
+<figure><img src="gifs/221_dev_dark_mode.gif" loading="lazy" alt="Dark mode toggle"><figcaption><b>221</b> 深色模式<br><span>Dark mode toggle</span></figcaption></figure>
+<figure><img src="gifs/222_dev_packet_ping.gif" loading="lazy" alt="Ping, pong"><figcaption><b>222</b> ping一下<br><span>Ping, pong</span></figcaption></figure>
+<figure><img src="gifs/223_dev_step_debug.gif" loading="lazy" alt="Step debugger"><figcaption><b>223</b> 单步调试<br><span>Step debugger</span></figcaption></figure>
+<figure><img src="gifs/224_dev_sudo.gif" loading="lazy" alt="Sudo unlock"><figcaption><b>224</b> sudo解锁<br><span>Sudo unlock</span></figcaption></figure>
+<figure><img src="gifs/225_dev_patch_crack.gif" loading="lazy" alt="Patching a crack"><figcaption><b>225</b> 贴创可贴<br><span>Patching a crack</span></figcaption></figure>
+<figure><img src="gifs/226_dev_node_modules.gif" loading="lazy" alt="Heavy node_modules"><figcaption><b>226</b> 依赖太重<br><span>Heavy node_modules</span></figcaption></figure>
+<figure><img src="gifs/227_dev_ctrl_s.gif" loading="lazy" alt="Ctrl+S spam"><figcaption><b>227</b> 疯狂保存<br><span>Ctrl+S spam</span></figcaption></figure>
+<figure><img src="gifs/228_dev_contrib_graph.gif" loading="lazy" alt="Contribution graph"><figcaption><b>228</b> 提交格子变绿<br><span>Contribution graph</span></figcaption></figure>
+<figure><img src="gifs/229_dev_reboot.gif" loading="lazy" alt="Reboot"><figcaption><b>229</b> 重启大法<br><span>Reboot</span></figcaption></figure>
+<figure><img src="gifs/230_dev_bsod.gif" loading="lazy" alt="Blue screen"><figcaption><b>230</b> 蓝屏了<br><span>Blue screen</span></figcaption></figure>
+<figure><img src="gifs/231_dev_drag_drop.gif" loading="lazy" alt="Drag and drop"><figcaption><b>231</b> 拖进文件夹<br><span>Drag and drop</span></figcaption></figure>
+<figure><img src="gifs/232_dev_zip.gif" loading="lazy" alt="Zip it up"><figcaption><b>232</b> 压缩打包<br><span>Zip it up</span></figcaption></figure>
+<h2>运动 · Sports <small>60</small></h2>
+<figure><img src="gifs/233_sport_bicycle_kick.gif" loading="lazy" alt="Bicycle kick"><figcaption><b>233</b> 倒挂金钩<br><span>Bicycle kick</span></figcaption></figure>
+<figure><img src="gifs/234_sport_goal_kick.gif" loading="lazy" alt="Goal kick"><figcaption><b>234</b> 射门得分<br><span>Goal kick</span></figcaption></figure>
+<figure><img src="gifs/235_sport_goalie_dive.gif" loading="lazy" alt="Goalie dive"><figcaption><b>235</b> 守门员扑救<br><span>Goalie dive</span></figcaption></figure>
+<figure><img src="gifs/236_sport_crossover.gif" loading="lazy" alt="Crossover dribble"><figcaption><b>236</b> 胯下运球<br><span>Crossover dribble</span></figcaption></figure>
+<figure><img src="gifs/237_sport_dunk.gif" loading="lazy" alt="Slam dunk"><figcaption><b>237</b> 扣篮<br><span>Slam dunk</span></figcaption></figure>
+<figure><img src="gifs/238_sport_ball_spin.gif" loading="lazy" alt="Finger ball spin"><figcaption><b>238</b> 指尖转球<br><span>Finger ball spin</span></figcaption></figure>
+<figure><img src="gifs/239_sport_tennis_serve.gif" loading="lazy" alt="Tennis serve"><figcaption><b>239</b> 网球发球<br><span>Tennis serve</span></figcaption></figure>
+<figure><img src="gifs/240_sport_ping_pong.gif" loading="lazy" alt="Ping-pong rally"><figcaption><b>240</b> 乒乓球对打<br><span>Ping-pong rally</span></figcaption></figure>
+<figure><img src="gifs/241_sport_baseball.gif" loading="lazy" alt="Home run swing"><figcaption><b>241</b> 棒球全垒打<br><span>Home run swing</span></figcaption></figure>
+<figure><img src="gifs/242_sport_bowling.gif" loading="lazy" alt="Bowling strike"><figcaption><b>242</b> 保龄球全中<br><span>Bowling strike</span></figcaption></figure>
+<figure><img src="gifs/243_sport_golf_putt.gif" loading="lazy" alt="Golf putt"><figcaption><b>243</b> 高尔夫推杆<br><span>Golf putt</span></figcaption></figure>
+<figure><img src="gifs/244_sport_punch_bag.gif" loading="lazy" alt="Punching bag"><figcaption><b>244</b> 打沙袋<br><span>Punching bag</span></figcaption></figure>
+<figure><img src="gifs/245_sport_karate_chop.gif" loading="lazy" alt="Karate chop"><figcaption><b>245</b> 空手劈板<br><span>Karate chop</span></figcaption></figure>
+<figure><img src="gifs/246_sport_sumo_stomp.gif" loading="lazy" alt="Sumo stomp"><figcaption><b>246</b> 相扑踏步<br><span>Sumo stomp</span></figcaption></figure>
+<figure><img src="gifs/247_sport_fencing.gif" loading="lazy" alt="Fencing lunge"><figcaption><b>247</b> 击剑刺气球<br><span>Fencing lunge</span></figcaption></figure>
+<figure><img src="gifs/248_sport_barbell.gif" loading="lazy" alt="Clean and jerk"><figcaption><b>248</b> 举杠铃<br><span>Clean and jerk</span></figcaption></figure>
+<figure><img src="gifs/249_sport_tire_flip.gif" loading="lazy" alt="Tire flip"><figcaption><b>249</b> 翻轮胎<br><span>Tire flip</span></figcaption></figure>
+<figure><img src="gifs/250_sport_dumbbell_curl.gif" loading="lazy" alt="Dumbbell curls"><figcaption><b>250</b> 哑铃弯举<br><span>Dumbbell curls</span></figcaption></figure>
+<figure><img src="gifs/251_sport_pushups.gif" loading="lazy" alt="Push-ups"><figcaption><b>251</b> 俯卧撑<br><span>Push-ups</span></figcaption></figure>
+<figure><img src="gifs/252_sport_squats.gif" loading="lazy" alt="Piggyback squats"><figcaption><b>252</b> 背人深蹲<br><span>Piggyback squats</span></figcaption></figure>
+<figure><img src="gifs/253_sport_pullups.gif" loading="lazy" alt="Pull-ups"><figcaption><b>253</b> 引体向上<br><span>Pull-ups</span></figcaption></figure>
+<figure><img src="gifs/254_sport_jump_rope.gif" loading="lazy" alt="Jump rope"><figcaption><b>254</b> 跳绳<br><span>Jump rope</span></figcaption></figure>
+<figure><img src="gifs/255_sport_hula_hoop.gif" loading="lazy" alt="Hula hoop"><figcaption><b>255</b> 转呼啦圈<br><span>Hula hoop</span></figcaption></figure>
+<figure><img src="gifs/256_sport_yoga_tree.gif" loading="lazy" alt="Yoga tree pose"><figcaption><b>256</b> 瑜伽树式<br><span>Yoga tree pose</span></figcaption></figure>
+<figure><img src="gifs/257_sport_jumping_jacks.gif" loading="lazy" alt="Jumping jacks"><figcaption><b>257</b> 开合跳<br><span>Jumping jacks</span></figcaption></figure>
+<figure><img src="gifs/258_sport_treadmill.gif" loading="lazy" alt="Treadmill"><figcaption><b>258</b> 跑步机<br><span>Treadmill</span></figcaption></figure>
+<figure><img src="gifs/259_sport_jogging.gif" loading="lazy" alt="Morning jog"><figcaption><b>259</b> 晨跑<br><span>Morning jog</span></figcaption></figure>
+<figure><img src="gifs/260_sport_cycling.gif" loading="lazy" alt="Cycling"><figcaption><b>260</b> 骑自行车<br><span>Cycling</span></figcaption></figure>
+<figure><img src="gifs/261_sport_unicycle.gif" loading="lazy" alt="Unicycle wobble"><figcaption><b>261</b> 骑独轮车<br><span>Unicycle wobble</span></figcaption></figure>
+<figure><img src="gifs/262_sport_kickflip.gif" loading="lazy" alt="Skateboard kickflip"><figcaption><b>262</b> 滑板尖翻<br><span>Skateboard kickflip</span></figcaption></figure>
+<figure><img src="gifs/263_sport_swim_laps.gif" loading="lazy" alt="Swimming laps"><figcaption><b>263</b> 自由泳<br><span>Swimming laps</span></figcaption></figure>
+<figure><img src="gifs/264_sport_diving_board.gif" loading="lazy" alt="High dive"><figcaption><b>264</b> 跳水<br><span>High dive</span></figcaption></figure>
+<figure><img src="gifs/265_sport_archery.gif" loading="lazy" alt="Archery bullseye"><figcaption><b>265</b> 射箭正中靶心<br><span>Archery bullseye</span></figcaption></figure>
+<figure><img src="gifs/266_sport_ballet.gif" loading="lazy" alt="Ballet pirouette"><figcaption><b>266</b> 芭蕾旋转<br><span>Ballet pirouette</span></figcaption></figure>
+<figure><img src="gifs/267_sport_headspin.gif" loading="lazy" alt="Breakdance headspin"><figcaption><b>267</b> 霹雳舞头转<br><span>Breakdance headspin</span></figcaption></figure>
+<figure><img src="gifs/268_sport_cartwheel.gif" loading="lazy" alt="Cartwheels"><figcaption><b>268</b> 侧手翻<br><span>Cartwheels</span></figcaption></figure>
+<figure><img src="gifs/269_sport_trampoline.gif" loading="lazy" alt="Trampoline flip"><figcaption><b>269</b> 蹦床空翻<br><span>Trampoline flip</span></figcaption></figure>
+<figure><img src="gifs/270_sport_parkour.gif" loading="lazy" alt="Parkour vault"><figcaption><b>270</b> 跑酷翻越<br><span>Parkour vault</span></figcaption></figure>
+<figure><img src="gifs/271_sport_juggling.gif" loading="lazy" alt="Juggling"><figcaption><b>271</b> 抛球杂耍<br><span>Juggling</span></figcaption></figure>
+<figure><img src="gifs/272_sport_pogo.gif" loading="lazy" alt="Pogo stick"><figcaption><b>272</b> 弹簧高跷<br><span>Pogo stick</span></figcaption></figure>
+<figure><img src="gifs/273_sport_roller_skates.gif" loading="lazy" alt="Wobbly roller skates"><figcaption><b>273</b> 溜冰鞋摇晃<br><span>Wobbly roller skates</span></figcaption></figure>
+<figure><img src="gifs/274_sport_kayak.gif" loading="lazy" alt="Kayaking"><figcaption><b>274</b> 划皮艇<br><span>Kayaking</span></figcaption></figure>
+<figure><img src="gifs/275_sport_finish_line.gif" loading="lazy" alt="Finish line"><figcaption><b>275</b> 冲过终点线<br><span>Finish line</span></figcaption></figure>
+<figure><img src="gifs/276_sport_podium.gif" loading="lazy" alt="Top of the podium"><figcaption><b>276</b> 领奖台<br><span>Top of the podium</span></figcaption></figure>
+<figure><img src="gifs/277_sport_rowing_machine.gif" loading="lazy" alt="Rowing machine"><figcaption><b>277</b> 划船机<br><span>Rowing machine</span></figcaption></figure>
+<figure><img src="gifs/278_sport_pom_poms.gif" loading="lazy" alt="Cheer pom-poms"><figcaption><b>278</b> 啦啦队花球<br><span>Cheer pom-poms</span></figcaption></figure>
+<figure><img src="gifs/279_sport_tug_of_war.gif" loading="lazy" alt="Tug of war"><figcaption><b>279</b> 拔河<br><span>Tug of war</span></figcaption></figure>
+<figure><img src="gifs/280_sport_limbo.gif" loading="lazy" alt="Limbo"><figcaption><b>280</b> 林波舞钻杆<br><span>Limbo</span></figcaption></figure>
+<figure><img src="gifs/281_sport_banana_slip.gif" loading="lazy" alt="Banana peel slip"><figcaption><b>281</b> 踩香蕉皮滑倒<br><span>Banana peel slip</span></figcaption></figure>
+<figure><img src="gifs/282_sport_wall_bonk.gif" loading="lazy" alt="Bonk into a wall"><figcaption><b>282</b> 撞墙眼冒金星<br><span>Bonk into a wall</span></figcaption></figure>
+<figure><img src="gifs/283_sport_sprint_start.gif" loading="lazy" alt="Sprint start"><figcaption><b>283</b> 起跑冲刺<br><span>Sprint start</span></figcaption></figure>
+<figure><img src="gifs/284_sport_high_jump.gif" loading="lazy" alt="High jump flop"><figcaption><b>284</b> 背越式跳高<br><span>High jump flop</span></figcaption></figure>
+<figure><img src="gifs/285_sport_frisbee.gif" loading="lazy" alt="Frisbee catch"><figcaption><b>285</b> 飞盘传接<br><span>Frisbee catch</span></figcaption></figure>
+<figure><img src="gifs/286_sport_dodgeball.gif" loading="lazy" alt="Dodgeball"><figcaption><b>286</b> 躲避球<br><span>Dodgeball</span></figcaption></figure>
+<figure><img src="gifs/287_sport_rope_climb.gif" loading="lazy" alt="Rope climb to the bell"><figcaption><b>287</b> 爬绳敲钟<br><span>Rope climb to the bell</span></figcaption></figure>
+<figure><img src="gifs/288_sport_splits.gif" loading="lazy" alt="The splits"><figcaption><b>288</b> 劈叉<br><span>The splits</span></figcaption></figure>
+<figure><img src="gifs/289_sport_sack_race.gif" loading="lazy" alt="Sack race"><figcaption><b>289</b> 袋鼠跳<br><span>Sack race</span></figcaption></figure>
+<figure><img src="gifs/290_sport_warmup.gif" loading="lazy" alt="Warm-up stretches"><figcaption><b>290</b> 热身拉伸<br><span>Warm-up stretches</span></figcaption></figure>
+<figure><img src="gifs/291_sport_hurdles.gif" loading="lazy" alt="Hurdles"><figcaption><b>291</b> 跨栏<br><span>Hurdles</span></figcaption></figure>
+<figure><img src="gifs/292_sport_shot_put.gif" loading="lazy" alt="Shot put"><figcaption><b>292</b> 推铅球<br><span>Shot put</span></figcaption></figure>
+<h2>角色扮演 · Costumes <small>56</small></h2>
+<figure><img src="gifs/293_cos_wizard_spell.gif" loading="lazy" alt="Wizard star spell"><figcaption><b>293</b> 巫师施法<br><span>Wizard star spell</span></figcaption></figure>
+<figure><img src="gifs/294_cos_wizard_staff.gif" loading="lazy" alt="Wizard staff levitation"><figcaption><b>294</b> 法杖悬浮<br><span>Wizard staff levitation</span></figcaption></figure>
+<figure><img src="gifs/295_cos_knight_shield.gif" loading="lazy" alt="Knight shield block"><figcaption><b>295</b> 骑士举盾<br><span>Knight shield block</span></figcaption></figure>
+<figure><img src="gifs/296_cos_knight_horse.gif" loading="lazy" alt="Hobby-horse knight"><figcaption><b>296</b> 骑竹马冲锋<br><span>Hobby-horse knight</span></figcaption></figure>
+<figure><img src="gifs/297_cos_pirate_spyglass.gif" loading="lazy" alt="Pirate spyglass"><figcaption><b>297</b> 海盗望远镜<br><span>Pirate spyglass</span></figcaption></figure>
+<figure><img src="gifs/298_cos_pirate_treasure.gif" loading="lazy" alt="Digging up treasure"><figcaption><b>298</b> 海盗挖宝<br><span>Digging up treasure</span></figcaption></figure>
+<figure><img src="gifs/299_cos_ninja_star.gif" loading="lazy" alt="Ninja star and vanish"><figcaption><b>299</b> 忍者飞镖<br><span>Ninja star and vanish</span></figcaption></figure>
+<figure><img src="gifs/300_cos_ninja_dash.gif" loading="lazy" alt="Ninja dash"><figcaption><b>300</b> 忍者瞬移<br><span>Ninja dash</span></figcaption></figure>
+<figure><img src="gifs/301_cos_hero_fly.gif" loading="lazy" alt="Superhero flight"><figcaption><b>301</b> 超人飞行<br><span>Superhero flight</span></figcaption></figure>
+<figure><img src="gifs/302_cos_hero_change.gif" loading="lazy" alt="Booth quick change"><figcaption><b>302</b> 电话亭变身<br><span>Booth quick change</span></figcaption></figure>
+<figure><img src="gifs/303_cos_royal_wave.gif" loading="lazy" alt="Royal parade wave"><figcaption><b>303</b> 国王巡游挥手<br><span>Royal parade wave</span></figcaption></figure>
+<figure><img src="gifs/304_cos_royal_knighting.gif" loading="lazy" alt="Knighting ceremony"><figcaption><b>304</b> 册封小骑士<br><span>Knighting ceremony</span></figcaption></figure>
+<figure><img src="gifs/305_cos_detective_trail.gif" loading="lazy" alt="Detective on the trail"><figcaption><b>305</b> 侦探追脚印<br><span>Detective on the trail</span></figcaption></figure>
+<figure><img src="gifs/306_cos_spy_sneak.gif" loading="lazy" alt="Newspaper spy"><figcaption><b>306</b> 报纸后的间谍<br><span>Newspaper spy</span></figcaption></figure>
+<figure><img src="gifs/307_cos_cowboy_lasso.gif" loading="lazy" alt="Cowboy lasso throw"><figcaption><b>307</b> 牛仔套索<br><span>Cowboy lasso throw</span></figcaption></figure>
+<figure><img src="gifs/308_cos_cowboy_tumbleweed.gif" loading="lazy" alt="Sheriff and tumbleweed"><figcaption><b>308</b> 警长与风滚草<br><span>Sheriff and tumbleweed</span></figcaption></figure>
+<figure><img src="gifs/309_cos_firefighter_hose.gif" loading="lazy" alt="Firefighter hose"><figcaption><b>309</b> 消防员灭火<br><span>Firefighter hose</span></figcaption></figure>
+<figure><img src="gifs/310_cos_doctor_stethoscope.gif" loading="lazy" alt="Doctor checkup"><figcaption><b>310</b> 医生听诊<br><span>Doctor checkup</span></figcaption></figure>
+<figure><img src="gifs/311_cos_scarecrow.gif" loading="lazy" alt="Scarecrow and crows"><figcaption><b>311</b> 稻草人赶乌鸦<br><span>Scarecrow and crows</span></figcaption></figure>
+<figure><img src="gifs/312_cos_scientist_potion.gif" loading="lazy" alt="Potion goes poof"><figcaption><b>312</b> 科学家调药水<br><span>Potion goes poof</span></figcaption></figure>
+<figure><img src="gifs/313_cos_mad_lightning.gif" loading="lazy" alt="Mad-scientist lightning"><figcaption><b>313</b> 疯狂科学家<br><span>Mad-scientist lightning</span></figcaption></figure>
+<figure><img src="gifs/314_cos_robot_beep.gif" loading="lazy" alt="Robot costume dance"><figcaption><b>314</b> 机器人舞<br><span>Robot costume dance</span></figcaption></figure>
+<figure><img src="gifs/315_cos_box_robot.gif" loading="lazy" alt="Cardboard box robot"><figcaption><b>315</b> 纸箱机器人<br><span>Cardboard box robot</span></figcaption></figure>
+<figure><img src="gifs/316_cos_dino_roar.gif" loading="lazy" alt="Dino hoodie RAWR"><figcaption><b>316</b> 恐龙连帽衫<br><span>Dino hoodie RAWR</span></figcaption></figure>
+<figure><img src="gifs/317_cos_bunny_hop.gif" loading="lazy" alt="Bunny-ear hops"><figcaption><b>317</b> 兔耳蹦跳<br><span>Bunny-ear hops</span></figcaption></figure>
+<figure><img src="gifs/318_cos_cat_purr.gif" loading="lazy" alt="Cat ears purring"><figcaption><b>318</b> 猫耳呼噜<br><span>Cat ears purring</span></figcaption></figure>
+<figure><img src="gifs/319_cos_frog_tongue.gif" loading="lazy" alt="Frog hat catches a fly"><figcaption><b>319</b> 青蛙帽吐舌<br><span>Frog hat catches a fly</span></figcaption></figure>
+<figure><img src="gifs/320_cos_viking_horn.gif" loading="lazy" alt="Viking horn blast"><figcaption><b>320</b> 维京号角<br><span>Viking horn blast</span></figcaption></figure>
+<figure><img src="gifs/321_cos_magician_hat.gif" loading="lazy" alt="Mini out of the hat"><figcaption><b>321</b> 帽子变出小Clawd<br><span>Mini out of the hat</span></figcaption></figure>
+<figure><img src="gifs/322_cos_magician_cards.gif" loading="lazy" alt="Card spring flourish"><figcaption><b>322</b> 魔术师飞牌<br><span>Card spring flourish</span></figcaption></figure>
+<figure><img src="gifs/323_cos_mermaid_splash.gif" loading="lazy" alt="Mermaid leap"><figcaption><b>323</b> 美人鱼跃水<br><span>Mermaid leap</span></figcaption></figure>
+<figure><img src="gifs/324_cos_angel_flutter.gif" loading="lazy" alt="Angel wings flutter"><figcaption><b>324</b> 小天使扑翅<br><span>Angel wings flutter</span></figcaption></figure>
+<figure><img src="gifs/325_cos_devil_fork.gif" loading="lazy" alt="Little devil pops a balloon"><figcaption><b>325</b> 小恶魔戳气球<br><span>Little devil pops a balloon</span></figcaption></figure>
+<figure><img src="gifs/326_cos_alien_ufo.gif" loading="lazy" alt="UFO tractor beam"><figcaption><b>326</b> 外星人光束<br><span>UFO tractor beam</span></figcaption></figure>
+<figure><img src="gifs/327_cos_sailor_row.gif" loading="lazy" alt="Sailor rowing"><figcaption><b>327</b> 水手划船<br><span>Sailor rowing</span></figcaption></figure>
+<figure><img src="gifs/328_cos_puppeteer.gif" loading="lazy" alt="Marionette puppeteer"><figcaption><b>328</b> 提线木偶师<br><span>Marionette puppeteer</span></figcaption></figure>
+<figure><img src="gifs/329_cos_mail_delivery.gif" loading="lazy" alt="Mail delivery"><figcaption><b>329</b> 邮递员送信<br><span>Mail delivery</span></figcaption></figure>
+<figure><img src="gifs/330_cos_conductor_baton.gif" loading="lazy" alt="Conductor 4/4 beat"><figcaption><b>330</b> 指挥家<br><span>Conductor 4/4 beat</span></figcaption></figure>
+<figure><img src="gifs/331_cos_sword_slash.gif" loading="lazy" alt="Swordsman apple slice"><figcaption><b>331</b> 剑客劈苹果<br><span>Swordsman apple slice</span></figcaption></figure>
+<figure><img src="gifs/332_cos_beekeeper.gif" loading="lazy" alt="Beekeeper and bees"><figcaption><b>332</b> 养蜂人<br><span>Beekeeper and bees</span></figcaption></figure>
+<figure><img src="gifs/333_cos_lifeguard_ring.gif" loading="lazy" alt="Lifeguard ring toss"><figcaption><b>333</b> 救生员扔救生圈<br><span>Lifeguard ring toss</span></figcaption></figure>
+<figure><img src="gifs/334_cos_mime_box.gif" loading="lazy" alt="Mime in an invisible box"><figcaption><b>334</b> 默剧隐形箱<br><span>Mime in an invisible box</span></figcaption></figure>
+<figure><img src="gifs/335_cos_mech_pilot.gif" loading="lazy" alt="Tiny mech pilot"><figcaption><b>335</b> 机甲驾驶员<br><span>Tiny mech pilot</span></figcaption></figure>
+<figure><img src="gifs/336_cos_time_travel.gif" loading="lazy" alt="Time traveller hat jumps"><figcaption><b>336</b> 时间旅行者<br><span>Time traveller hat jumps</span></figcaption></figure>
+<figure><img src="gifs/337_cos_diver_helmet.gif" loading="lazy" alt="Brass-helmet diver"><figcaption><b>337</b> 深海潜水员<br><span>Brass-helmet diver</span></figcaption></figure>
+<figure><img src="gifs/338_cos_explorer_map.gif" loading="lazy" alt="Explorer reads the map"><figcaption><b>338</b> 探险家看地图<br><span>Explorer reads the map</span></figcaption></figure>
+<figure><img src="gifs/339_cos_crossing_guard.gif" loading="lazy" alt="Crossing guard"><figcaption><b>339</b> 导护员举牌<br><span>Crossing guard</span></figcaption></figure>
+<figure><img src="gifs/340_cos_jester_ball.gif" loading="lazy" alt="Jester on a ball"><figcaption><b>340</b> 小丑踩球<br><span>Jester on a ball</span></figcaption></figure>
+<figure><img src="gifs/341_cos_princess_twirl.gif" loading="lazy" alt="Princess gown twirl"><figcaption><b>341</b> 公主转圈<br><span>Princess gown twirl</span></figcaption></figure>
+<figure><img src="gifs/342_cos_ringmaster_hoop.gif" loading="lazy" alt="Ringmaster hoop jump"><figcaption><b>342</b> 马戏团钻火圈<br><span>Ringmaster hoop jump</span></figcaption></figure>
+<figure><img src="gifs/343_cos_genie_lamp.gif" loading="lazy" alt="Genie from the lamp"><figcaption><b>343</b> 神灯精灵<br><span>Genie from the lamp</span></figcaption></figure>
+<figure><img src="gifs/344_cos_dragon_fire.gif" loading="lazy" alt="Dragon costume fire"><figcaption><b>344</b> 小龙喷火<br><span>Dragon costume fire</span></figcaption></figure>
+<figure><img src="gifs/345_cos_pilot_banner.gif" loading="lazy" alt="Pilot towing a banner"><figcaption><b>345</b> 飞行员拉横幅<br><span>Pilot towing a banner</span></figcaption></figure>
+<figure><img src="gifs/346_cos_teacher_chalk.gif" loading="lazy" alt="Teacher at the chalkboard"><figcaption><b>346</b> 老师写黑板<br><span>Teacher at the chalkboard</span></figcaption></figure>
+<figure><img src="gifs/347_cos_lumberjack_chop.gif" loading="lazy" alt="Lumberjack log split"><figcaption><b>347</b> 伐木工劈柴<br><span>Lumberjack log split</span></figcaption></figure>
+<figure><img src="gifs/348_cos_miner_lamp.gif" loading="lazy" alt="Miner finds a gem"><figcaption><b>348</b> 矿工寻宝石<br><span>Miner finds a gem</span></figcaption></figure>
+<h2>节日季节 · Seasons <small>52</small></h2>
+<figure><img src="gifs/349_sea_pumpkin_carve.gif" loading="lazy" alt="Carving a jack-o&#x27;-lantern"><figcaption><b>349</b> 雕南瓜灯<br><span>Carving a jack-o&#x27;-lantern</span></figcaption></figure>
+<figure><img src="gifs/350_sea_ghost_sheet.gif" loading="lazy" alt="Bedsheet ghost"><figcaption><b>350</b> 床单幽灵<br><span>Bedsheet ghost</span></figcaption></figure>
+<figure><img src="gifs/351_sea_trick_treat.gif" loading="lazy" alt="Trick-or-treat haul"><figcaption><b>351</b> 不给糖就捣蛋<br><span>Trick-or-treat haul</span></figcaption></figure>
+<figure><img src="gifs/352_sea_witch_broom.gif" loading="lazy" alt="Witch on a broom"><figcaption><b>352</b> 骑扫帚飞<br><span>Witch on a broom</span></figcaption></figure>
+<figure><img src="gifs/353_sea_mummy_wrap.gif" loading="lazy" alt="Mummy wrap"><figcaption><b>353</b> 木乃伊缠绷带<br><span>Mummy wrap</span></figcaption></figure>
+<figure><img src="gifs/354_sea_vampire_cape.gif" loading="lazy" alt="Vampire cape swish"><figcaption><b>354</b> 吸血鬼披风<br><span>Vampire cape swish</span></figcaption></figure>
+<figure><img src="gifs/355_sea_skeleton_dance.gif" loading="lazy" alt="Dancing with a skeleton"><figcaption><b>355</b> 和骷髅跳舞<br><span>Dancing with a skeleton</span></figcaption></figure>
+<figure><img src="gifs/356_sea_bats_circle.gif" loading="lazy" alt="Bats circling"><figcaption><b>356</b> 蝙蝠绕飞<br><span>Bats circling</span></figcaption></figure>
+<figure><img src="gifs/357_sea_tree_star.gif" loading="lazy" alt="Star on the tree"><figcaption><b>357</b> 圣诞树放星星<br><span>Star on the tree</span></figcaption></figure>
+<figure><img src="gifs/358_sea_snowman_build.gif" loading="lazy" alt="Building a snowman"><figcaption><b>358</b> 堆雪人<br><span>Building a snowman</span></figcaption></figure>
+<figure><img src="gifs/359_sea_santa_sack.gif" loading="lazy" alt="Santa&#x27;s sack"><figcaption><b>359</b> 圣诞老人背礼物<br><span>Santa&#x27;s sack</span></figcaption></figure>
+<figure><img src="gifs/360_sea_reindeer_bells.gif" loading="lazy" alt="Reindeer jingle bells"><figcaption><b>360</b> 驯鹿摇铃铛<br><span>Reindeer jingle bells</span></figcaption></figure>
+<figure><img src="gifs/361_sea_fireplace.gif" loading="lazy" alt="Stockings by the fire"><figcaption><b>361</b> 壁炉挂袜子<br><span>Stockings by the fire</span></figcaption></figure>
+<figure><img src="gifs/362_sea_gingerbread_chase.gif" loading="lazy" alt="Gingerbread chase"><figcaption><b>362</b> 追姜饼人<br><span>Gingerbread chase</span></figcaption></figure>
+<figure><img src="gifs/363_sea_gift_unwrap.gif" loading="lazy" alt="Unwrapping a gift"><figcaption><b>363</b> 拆圣诞礼物<br><span>Unwrapping a gift</span></figcaption></figure>
+<figure><img src="gifs/364_sea_snow_globe.gif" loading="lazy" alt="Shaken snow globe"><figcaption><b>364</b> 水晶球摇雪<br><span>Shaken snow globe</span></figcaption></figure>
+<figure><img src="gifs/365_sea_countdown.gif" loading="lazy" alt="New Year countdown"><figcaption><b>365</b> 新年倒计时<br><span>New Year countdown</span></figcaption></figure>
+<figure><img src="gifs/366_sea_fireworks_watch.gif" loading="lazy" alt="Watching fireworks"><figcaption><b>366</b> 看烟花<br><span>Watching fireworks</span></figcaption></figure>
+<figure><img src="gifs/367_sea_party_popper.gif" loading="lazy" alt="Party popper"><figcaption><b>367</b> 拉礼花筒<br><span>Party popper</span></figcaption></figure>
+<figure><img src="gifs/368_sea_sparkler_heart.gif" loading="lazy" alt="Sparkler heart"><figcaption><b>368</b> 仙女棒画心<br><span>Sparkler heart</span></figcaption></figure>
+<figure><img src="gifs/369_sea_red_envelope.gif" loading="lazy" alt="Red envelope"><figcaption><b>369</b> 收红包<br><span>Red envelope</span></figcaption></figure>
+<figure><img src="gifs/370_sea_sky_lantern.gif" loading="lazy" alt="Releasing a sky lantern"><figcaption><b>370</b> 放孔明灯<br><span>Releasing a sky lantern</span></figcaption></figure>
+<figure><img src="gifs/371_sea_firecracker.gif" loading="lazy" alt="Firecracker string"><figcaption><b>371</b> 放鞭炮<br><span>Firecracker string</span></figcaption></figure>
+<figure><img src="gifs/372_sea_lion_dance.gif" loading="lazy" alt="Lion dance"><figcaption><b>372</b> 舞狮<br><span>Lion dance</span></figcaption></figure>
+<figure><img src="gifs/373_sea_fu_upside.gif" loading="lazy" alt="Fu turned upside down"><figcaption><b>373</b> 福倒了<br><span>Fu turned upside down</span></figcaption></figure>
+<figure><img src="gifs/374_sea_mooncake_moon.gif" loading="lazy" alt="Mooncake under the moon"><figcaption><b>374</b> 中秋赏月<br><span>Mooncake under the moon</span></figcaption></figure>
+<figure><img src="gifs/375_sea_dragon_boat.gif" loading="lazy" alt="Dragon boat race"><figcaption><b>375</b> 划龙舟<br><span>Dragon boat race</span></figcaption></figure>
+<figure><img src="gifs/376_sea_valentine_balloon.gif" loading="lazy" alt="Heart balloon lift"><figcaption><b>376</b> 爱心气球<br><span>Heart balloon lift</span></figcaption></figure>
+<figure><img src="gifs/377_sea_easter_hunt.gif" loading="lazy" alt="Easter egg hunt"><figcaption><b>377</b> 找彩蛋<br><span>Easter egg hunt</span></figcaption></figure>
+<figure><img src="gifs/378_sea_birthday_candles.gif" loading="lazy" alt="Blowing out candles"><figcaption><b>378</b> 吹生日蜡烛<br><span>Blowing out candles</span></figcaption></figure>
+<figure><img src="gifs/379_sea_umbrella_rain.gif" loading="lazy" alt="Umbrella in the rain"><figcaption><b>379</b> 雨中撑伞<br><span>Umbrella in the rain</span></figcaption></figure>
+<figure><img src="gifs/380_sea_puddle_jump.gif" loading="lazy" alt="Puddle jump"><figcaption><b>380</b> 踩水坑<br><span>Puddle jump</span></figcaption></figure>
+<figure><img src="gifs/381_sea_thunderstorm.gif" loading="lazy" alt="Thunderstorm scare"><figcaption><b>381</b> 雷雨惊吓<br><span>Thunderstorm scare</span></figcaption></figure>
+<figure><img src="gifs/382_sea_rainbow.gif" loading="lazy" alt="Rainbow after rain"><figcaption><b>382</b> 雨后彩虹<br><span>Rainbow after rain</span></figcaption></figure>
+<figure><img src="gifs/383_sea_snow_angel.gif" loading="lazy" alt="Snow angel"><figcaption><b>383</b> 雪地天使<br><span>Snow angel</span></figcaption></figure>
+<figure><img src="gifs/384_sea_windy.gif" loading="lazy" alt="Blown by the wind"><figcaption><b>384</b> 被大风吹<br><span>Blown by the wind</span></figcaption></figure>
+<figure><img src="gifs/385_sea_sandcastle.gif" loading="lazy" alt="Sandcastle vs. the wave"><figcaption><b>385</b> 海边堆沙堡<br><span>Sandcastle vs. the wave</span></figcaption></figure>
+<figure><img src="gifs/386_sea_leaf_pile.gif" loading="lazy" alt="Leaf pile dive"><figcaption><b>386</b> 跳进落叶堆<br><span>Leaf pile dive</span></figcaption></figure>
+<figure><img src="gifs/387_sea_butterfly_chase.gif" loading="lazy" alt="Chasing a butterfly"><figcaption><b>387</b> 扑蝴蝶<br><span>Chasing a butterfly</span></figcaption></figure>
+<figure><img src="gifs/388_sea_fireflies.gif" loading="lazy" alt="Fireflies at night"><figcaption><b>388</b> 夏夜萤火虫<br><span>Fireflies at night</span></figcaption></figure>
+<figure><img src="gifs/389_sea_telescope.gif" loading="lazy" alt="Stargazing telescope"><figcaption><b>389</b> 望远镜观星<br><span>Stargazing telescope</span></figcaption></figure>
+<figure><img src="gifs/390_sea_day_night.gif" loading="lazy" alt="Sunrise to moonrise"><figcaption><b>390</b> 日出日落<br><span>Sunrise to moonrise</span></figcaption></figure>
+<figure><img src="gifs/391_sea_fog.gif" loading="lazy" alt="Lost in the fog"><figcaption><b>391</b> 大雾迷路<br><span>Lost in the fog</span></figcaption></figure>
+<figure><img src="gifs/392_sea_hail.gif" loading="lazy" alt="Hail on a bucket"><figcaption><b>392</b> 冰雹敲桶<br><span>Hail on a bucket</span></figcaption></figure>
+<figure><img src="gifs/393_sea_tornado.gif" loading="lazy" alt="Caught in a tornado"><figcaption><b>393</b> 龙卷风<br><span>Caught in a tornado</span></figcaption></figure>
+<figure><img src="gifs/394_sea_ice_skate.gif" loading="lazy" alt="Ice skating"><figcaption><b>394</b> 溜冰<br><span>Ice skating</span></figcaption></figure>
+<figure><img src="gifs/395_sea_sledding.gif" loading="lazy" alt="Sledding downhill"><figcaption><b>395</b> 滑雪橇<br><span>Sledding downhill</span></figcaption></figure>
+<figure><img src="gifs/396_sea_hot_cocoa.gif" loading="lazy" alt="Cocoa by the snowy window"><figcaption><b>396</b> 窗边热可可<br><span>Cocoa by the snowy window</span></figcaption></figure>
+<figure><img src="gifs/397_sea_snowball_fight.gif" loading="lazy" alt="Snowball fight"><figcaption><b>397</b> 打雪仗<br><span>Snowball fight</span></figcaption></figure>
+<figure><img src="gifs/398_sea_rake_leaves.gif" loading="lazy" alt="Raking leaves"><figcaption><b>398</b> 扫落叶<br><span>Raking leaves</span></figcaption></figure>
+<figure><img src="gifs/399_sea_dandelion.gif" loading="lazy" alt="Dandelion wish"><figcaption><b>399</b> 吹蒲公英<br><span>Dandelion wish</span></figcaption></figure>
+<figure><img src="gifs/400_sea_heatwave.gif" loading="lazy" alt="Heatwave fan &amp; ice pop"><figcaption><b>400</b> 热浪扇扇子<br><span>Heatwave fan &amp; ice pop</span></figcaption></figure></main>
+<script>
+const q=document.getElementById('q');q.oninput=()=>{const v=q.value.toLowerCase();
+for(const f of document.querySelectorAll('figure'))f.style.display=f.textContent.toLowerCase().includes(v)?'':'none'};
+const bs=document.querySelectorAll('button[data-bg]');
+function setBg(v){document.body.className=v;bs.forEach(b=>b.classList.toggle('on',b.dataset.bg===v));try{localStorage.setItem('bg',v)}catch(e){}}
+bs.forEach(b=>b.onclick=()=>setBg(b.dataset.bg));
+let saved='';try{saved=localStorage.getItem('bg')||''}catch(e){}setBg(saved);
+</script></body></html>

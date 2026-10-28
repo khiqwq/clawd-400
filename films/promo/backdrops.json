@@ -1,0 +1,38 @@
+{
+ "video": {
+  "png": "backdrops/lounge_day.png",
+  "theme": "light"
+ },
+ "summer": {
+  "png": "backdrops/beach_day.png",
+  "theme": "light"
+ },
+ "emotions": {
+  "png": "backdrops/bedroom_day.png",
+  "theme": "light"
+ },
+ "life": {
+  "png": "backdrops/kitchen_day.png",
+  "theme": "light"
+ },
+ "dev": {
+  "png": "backdrops/office_day.png",
+  "theme": "light"
+ },
+ "sports": {
+  "png": "backdrops/sports_day.png",
+  "theme": "light"
+ },
+ "costumes": {
+  "png": "backdrops/stage_day.png",
+  "theme": "light"
+ },
+ "seasons": {
+  "png": "backdrops/snow_day.png",
+  "theme": "light"
+ },
+ "default": {
+  "png": "backdrops/lounge_day.png",
+  "theme": "light"
+ }
+}

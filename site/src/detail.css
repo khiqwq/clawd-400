@@ -1,0 +1,21 @@
+:root { --bg: #f4f2ec; --ink: #1a1714; --mute: #6f675f; --line: #e3ded4; --accent: #e37e52; --tile: #fbf9f4; color-scheme: light dark;
+  font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+@media (prefers-color-scheme: dark) { :root { --bg: #131313; --ink: #ece8e3; --mute: #a39b93; --line: #2c2a28; --accent: #ea8a5f; --tile: #1a1918; } }
+body { margin: 0 auto; max-width: 1000px; padding: 0 16px 48px; background: var(--bg); color: var(--ink); }
+a { color: var(--accent); }
+.top { display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.top span { display: flex; gap: 16px; }
+main { display: grid; grid-template-columns: minmax(0, 400px) 1fr; gap: 28px; margin-top: 24px; }
+figure { margin: 0; background: var(--tile); border: 1px solid var(--line); border-radius: 14px; }
+figure img { width: 100%; height: auto; display: block; image-rendering: pixelated; }
+.num { margin: 0; color: var(--mute); font: 13px ui-monospace, Consolas, monospace; }
+h1 { margin: 4px 0 0; font-size: 28px; } .en { margin: 2px 0 16px; color: var(--mute); }
+dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 0; } dt { color: var(--mute); } dd { margin: 0; overflow-wrap: anywhere; }
+h2 { font-size: 17px; margin: 32px 0 10px; }
+.strip { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.strip li { display: flex; flex-direction: column; align-items: center; gap: 4px; font: 11px ui-monospace, Consolas, monospace; color: var(--mute); }
+.strip i { width: 80px; height: 80px; border-radius: 8px; border: 1px solid var(--line); background: var(--tile) var(--sheet) no-repeat;
+  background-size: calc(var(--n) * 80px) 80px; background-position: calc(var(--i) * -80px) 0; image-rendering: pixelated; }
+.pal { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 6px; font-size: 13px; }
+.pal li { display: flex; align-items: center; gap: 8px; } .pal i { width: 18px; height: 18px; border-radius: 5px; border: 1px solid rgba(0,0,0,.15); }
+@media (max-width: 700px) { main { grid-template-columns: 1fr; } }

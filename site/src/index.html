@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN" data-bg="paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Clawd 400 · 400 个 Clawd 像素动图</title>
+<meta name="description" content="400 animated pixel-art GIFs of Clawd, the Claude Code mascot. Transparent 480×480, free to use commercially under CC BY 4.0. 400 个 Clawd 像素动图，透明背景，CC BY 4.0 可商用。">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f4f2ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Clawd 400 — 400 个 Clawd 像素动图">
+<meta property="og:description" content="400 animated pixel-art GIFs of Clawd. Free, CC BY 4.0.">
+<meta property="og:image" content="{{OG}}">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/json" href="api/index.json" title="Clawd 400 catalog (JSON)">
+<link rel="alternate" type="text/plain" href="llms.txt" title="llms.txt — how AI agents read this site">
+<link rel="help" href="llms.txt">
+<link rel="stylesheet" href="app.css">
+<script type="application/ld+json">{{JSONLD}}</script>
+<script>try{const t=localStorage.getItem('clawd.theme');if(t)document.documentElement.dataset.theme=t;const b=localStorage.getItem('clawd.bg');if(b)document.documentElement.dataset.bg=b;const z=localStorage.getItem('clawd.size');if(z)document.documentElement.style.setProperty('--tile',z+'px')}catch(e){}</script>
+</head>
+<body>
+<!-- For AI agents: everything on this page is also available as static data. Read llms.txt, api/index.json,
+     api/gifs/{nnn}.json and api/frames/{nnn}.txt (40x40 ASCII grids). In a browser, use window.clawd (clawd.help()). -->
+<header class="hero">
+  <div class="hero-in">
+    <img class="logo" src="favicon.svg" width="72" height="72" alt="">
+    <div class="hero-text">
+      <h1>Clawd <span>400</span></h1>
+      <p>400 个 Clawd 像素动图 · 透明背景 · 480×480 · <a href="https://creativecommons.org/licenses/by/4.0/deed.zh-hans">CC BY 4.0</a> 署名即可商用</p>
+      <p class="hint">拖动任意动图到桌面、聊天窗口或设计软件即可保存 · 点开查看逐帧动画</p>
+    </div>
+    <nav class="hero-links">
+      <a class="btn primary" href="downloads/clawd-400.zip" download><svg viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>全部下载 <small>{{ZIPMB}} MB</small></a>
+      <a class="btn" href="{{REPO}}"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>
+      <a class="btn" href="llms.txt" title="给 AI / 脚本读取的接口说明"><svg viewBox="0 0 24 24"><path d="M8 6 3 12l5 6m8-12 5 6-5 6"/></svg>API · llms.txt</a>
+      <button class="btn icon" id="themeBtn" type="button" aria-label="切换深浅色"><svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    </nav>
+  </div>
+</header>
+
+<div class="toolbar" id="toolbar">
+  <div class="tb-in">
+    <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
+      <input id="q" type="search" placeholder="搜索名称、编号… ( / )" autocomplete="off" spellcheck="false" aria-label="搜索"></label>
+    <div class="chips" id="chips" role="tablist" aria-label="主题"></div>
+    <div class="tb-right">
+      <div class="seg" id="bgSeg" role="group" aria-label="动图底色">
+        <button type="button" data-bg="paper" title="米白底"><i class="sw paper"></i></button>
+        <button type="button" data-bg="white" title="白底"><i class="sw white"></i></button>
+        <button type="button" data-bg="dark" title="深色底"><i class="sw dark"></i></button>
+        <button type="button" data-bg="checker" title="透明格"><i class="sw checker"></i></button>
+      </div>
+      <input id="size" type="range" min="96" max="260" step="4" aria-label="缩略图大小" title="缩略图大小">
+      <button class="btn sel-toggle" id="selBtn" type="button" aria-pressed="false"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span>选择</span></button>
+    </div>
+  </div>
+</div>
+
+<main class="grid" id="grid" aria-live="polite">
+{{CARDS}}
+<p class="empty" id="empty" hidden>没有找到匹配的动图</p>
+</main>
+
+<footer class="foot">
+  <p><b>Clawd 400</b> · 动图与背景 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh-hans">CC BY 4.0</a>，代码 MIT。使用时请署名「Clawd 400 by 风花叶 — CC BY 4.0」。</p>
+  <p>非官方同人作品。Claude、Claude Code 与 Clawd 形象属于 Anthropic，本许可不授予其商标或形象权利；商用该形象前请自行确认。</p>
+  <p class="api-links">给 AI / 脚本：<a href="llms.txt">llms.txt</a> · <a href="api/index.json">api/index.json</a> · <a href="api/gifs/001.json">api/gifs/001.json</a> · <a href="api/frames/001.txt">api/frames/001.txt</a> · <a href="api/openapi.json">OpenAPI</a> · 浏览器内 <code>window.clawd.help()</code></p>
+</footer>
+
+<div class="selbar" id="selbar" role="toolbar" aria-label="批量选择" hidden>
+  <span class="count">已选 <b id="selCount">0</b> 张 · 当前显示 <span id="selTotal">400</span></span>
+  <button type="button" class="btn" id="selAll">全选</button>
+  <button type="button" class="btn" id="selInvert">反选</button>
+  <button type="button" class="btn" id="selClear">清空</button>
+  <button type="button" class="btn primary" id="selZip" disabled><svg viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg><span>下载 ZIP</span></button>
+  <button type="button" class="btn icon" id="selExit" aria-label="退出选择"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</div>
+
+<dialog class="viewer" id="viewer" aria-labelledby="vTitle">
+  <div class="v-in">
+    <header class="v-head">
+      <div class="v-title"><span class="v-num" id="vNum"></span><h2 id="vTitle"></h2><span class="v-en" id="vEn"></span></div>
+      <div class="v-nav">
+        <button type="button" class="btn icon" id="vPrevGif" aria-label="上一个动图 (PageUp)" title="上一个动图 (PageUp)"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" class="btn icon" id="vNextGif" aria-label="下一个动图 (PageDown)" title="下一个动图 (PageDown)"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+        <button type="button" class="btn icon" id="vClose" aria-label="关闭 (Esc)" title="关闭 (Esc)"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      </div>
+    </header>
+    <div class="v-stage" id="vStage"><canvas id="vCanvas" width="480" height="480" tabindex="0" aria-label="逐帧播放器"></canvas></div>
+    <div class="v-ctrl">
+      <div class="seg">
+        <button type="button" id="vStepBack" aria-label="上一帧 (←)" title="上一帧 (←)"><svg viewBox="0 0 24 24"><path d="M7 5v14M18 6l-8 6 8 6z"/></svg></button>
+        <button type="button" id="vPlay" aria-label="播放/暂停 (空格)" title="播放/暂停 (空格)"><svg class="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></svg><svg class="i-play" viewBox="0 0 24 24"><path d="M7 5l12 7-12 7z"/></svg></button>
+        <button type="button" id="vStep" aria-label="下一帧 (→)" title="下一帧 (→)"><svg viewBox="0 0 24 24"><path d="M17 5v14M6 6l8 6-8 6z"/></svg></button>
+      </div>
+      <span class="v-frame" id="vFrame">1 / 1</span>
+      <div class="seg" id="vSpeed" role="group" aria-label="播放速度">
+        <button type="button" data-speed="0.25">¼×</button><button type="button" data-speed="0.5">½×</button><button type="button" data-speed="1">1×</button><button type="button" data-speed="2">2×</button>
+      </div>
+      <div class="seg">
+        <button type="button" id="vOnion" aria-pressed="false" title="洋葱皮：叠加上一帧 (O)">洋葱皮</button>
+        <button type="button" id="vGrid" aria-pressed="false" title="像素网格 (G)">网格</button>
+      </div>
+    </div>
+    <ol class="v-strip" id="vStrip" aria-label="全部帧"></ol>
+    <aside class="v-side">
+      <dl class="v-facts" id="vFacts"></dl>
+      <div class="v-pal" id="vPal" aria-label="调色板"></div>
+      <div class="v-drag">
+        <img id="vGif" alt="" width="96" height="96" draggable="true">
+        <span>原始 GIF<br><small>拖出到桌面或其他软件</small></span>
+      </div>
+      <div class="v-actions">
+        <a class="btn primary" id="vDl" download><svg viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>下载 GIF</a>
+        <button type="button" class="btn" id="vFramesZip">逐帧 PNG (ZIP)</button>
+        <a class="btn" id="vSheet" download>帧序列图</a>
+        <button type="button" class="btn" id="vPick">加入选择</button>
+        <button type="button" class="btn" id="vCopy">复制链接</button>
+        <a class="btn ghost" id="vJson" target="_blank">JSON</a>
+        <a class="btn ghost" id="vAscii" target="_blank">ASCII 帧</a>
+      </div>
+      <p class="v-keys">空格 播放/暂停 · ←/→ 逐帧 · PageUp/PageDown 切换动图 · O 洋葱皮 · G 网格 · Esc 关闭</p>
+    </aside>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" hidden></div>
+<script id="clawd-boot" type="application/json">{{BOOT}}</script>
+<script src="app.js" defer></script>
+</body>
+</html>

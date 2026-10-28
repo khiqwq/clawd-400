@@ -1,0 +1,44 @@
+# Reference material: frames and GIFs from Anthropic's Clawd videos. Never published.
+ref/
+skills/*/assets/refs/
+skills/*/references/ref_maps/
+*_cmp.png
+*_crops.png
+
+# Local / generated
+.claude/
+__pycache__/
+*.pyc
+previews/
+_site/
+node_modules/
+
+# Films: the scripts and the final backdrops only (outputs, music, third-party kits and test rounds stay local)
+films/*
+!films/README.md
+!films/tools/
+!films/short/
+!films/promo/
+!films/backdrops/
+!films/covers/
+films/short/out/
+films/short/previews/
+films/short/build.py
+films/short/comp.html
+films/short/motion.js
+films/short/halftone_runtime.js
+films/promo/out/
+films/promo/assets/
+films/promo/comp.html
+films/promo/motion.js
+films/promo/halftone_runtime.js
+films/promo/paint_city.py
+films/promo/layout.py
+films/promo/build_gifs.py
+films/promo/stills_*.png
+films/backdrops/*
+!films/backdrops/brief*.md
+!films/backdrops/iteration-3/
+!films/backdrops/hilltop/
+films/backdrops/*/scenes/*_debug.png
+films/backdrops/hilltop/work_*.png

@@ -1,0 +1,11 @@
+{
+  "name": "clawd",
+  "version": "1.0.0",
+  "description": "Two skills: clawd-pixel draws Clawd (the Claude Code mascot) as 40x40 pixel GIFs with a small Python engine; clawd-halftone draws backdrops in the lo-fi Clawd videos' dotted halftone style.",
+  "author": {
+    "name": "风花叶"
+  },
+  "homepage": "https://github.com/khiqwq/clawd-400",
+  "license": "MIT",
+  "keywords": ["clawd", "pixel-art", "gif", "animation", "halftone", "claude-code"]
+}

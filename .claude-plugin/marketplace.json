@@ -1,0 +1,17 @@
+{
+  "name": "clawd-400",
+  "owner": {
+    "name": "风花叶"
+  },
+  "metadata": {
+    "description": "Clawd pixel-animation and halftone-backdrop skills for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "clawd",
+      "source": "./",
+      "description": "Make Clawd pixel GIFs (clawd-pixel) and the lo-fi videos' dotted halftone backdrops (clawd-halftone).",
+      "category": "design"
+    }
+  ]
+}
