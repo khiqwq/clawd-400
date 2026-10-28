@@ -168,11 +168,13 @@
   }));
 
   // ------------------------------------------------------------------ drag out of the browser
-  // Every <img> points at zh/一脸问号.gif, so the browser's own image drag already carries the original GIF bytes
-  // under the Chinese name. Leave the DataTransfer alone: a page-set DownloadURL becomes an async virtual file on
-  // Windows that the desktop accepts but QQ / WeChat reject ("图片拖拽失败").
-  const zhUrl = it => 'zh/' + encodeURIComponent(it.z);
+  // QQ fetches the dragged image's URL itself and fails on non-ASCII URLs, so every <img> keeps its ASCII URL
+  // (gifs/101_emo_confused.gif) and only the file name is Chinese: DownloadURL makes a drop on the desktop save
+  // 一脸问号.gif in Chrome / Edge. Nothing else is added to the DataTransfer (tested: QQ takes this, rejects
+  // Chinese URLs and blob: URLs).
   const themeZh = it => THEME.get(it.t)?.zh || it.t;
+  const dragOut = (e, it) => { if (it) e.dataTransfer.setData('DownloadURL', `image/gif:${it.z}:${abs('gifs/' + it.f)}`); };
+  grid.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') dragOut(e, BY_N.get(+e.target.closest('.card')?.dataset.n)); });
 
   // ------------------------------------------------------------------ ZIP (stored, no compression: GIF/PNG already are)
   const CRC = new Uint32Array(256).map((_, n) => { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; return c >>> 0; });
@@ -313,7 +315,7 @@
     $('#vNum').textContent = '#' + it.nnn;
     $('#vTitle').textContent = it.zh;
     $('#vEn').textContent = it.en;
-    const gifUrl = zhUrl(it);
+    const gifUrl = 'gifs/' + it.f;
     $('#vGif').src = gifUrl; $('#vGif').alt = it.en;
     $('#vDl').href = gifUrl; $('#vDl').setAttribute('download', it.z);
     $('#vSheet').href = `sheets/${it.nnn}.png`; $('#vSheet').setAttribute('download', `${it.zh}_帧序列.png`);
@@ -374,6 +376,7 @@
     const url = abs(`#/gif/${V.it.n}`);
     try { await navigator.clipboard.writeText(url); toast('链接已复制'); } catch { prompt('复制链接', url); }
   });
+  $('#vGif').addEventListener('dragstart', e => dragOut(e, V.it));
   $('#vFramesZip').addEventListener('click', async () => {
     const it = V.it, im = await sheet(it), files = [];
     for (let i = 0; i < it.d.length; i++) {
@@ -418,7 +421,7 @@
   // ------------------------------------------------------------------ window.clawd: the API for scripts and AI agents
   const pub = it => it && ({
     n: it.n, nnn: it.nnn, slug: it.s, zh: it.zh, en: it.en, theme: it.t, frames: it.d.length, durations_ms: [...it.d], total_ms: it.ms,
-    bytes: it.b, file_zh: it.z, gif: abs('gifs/' + it.f), gif_zh: abs(zhUrl(it)), json: abs(`api/gifs/${it.nnn}.json`), ascii: abs(`api/frames/${it.nnn}.txt`),
+    bytes: it.b, file_zh: it.z, gif: abs('gifs/' + it.f), json: abs(`api/gifs/${it.nnn}.json`), ascii: abs(`api/frames/${it.nnn}.txt`),
     sheet: abs(`sheets/${it.nnn}.png`), page: abs(`g/${it.nnn}-${it.s}.html`), viewer: abs(`#/gif/${it.n}`),
     selected: state.selected.has(it.n), visible: matches(it),
   });

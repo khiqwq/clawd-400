@@ -16,7 +16,6 @@ import json
 import os
 import re
 import shutil
-import urllib.parse
 import sys
 import zipfile
 from datetime import datetime, timezone
@@ -104,7 +103,6 @@ class Site:
         frames, durs = read_gif(src)
         zh_file = m['zh'] + '.gif'                     # the name a GIF gets when dragged out or downloaded
         shutil.copyfile(src, os.path.join(self.out, 'gifs', os.path.basename(src)))
-        shutil.copyfile(src, os.path.join(self.out, 'zh', zh_file))
 
         sheet = Image.new('RGBA', (G * len(frames), G), (0, 0, 0, 0))
         for i, fr in enumerate(frames):
@@ -158,7 +156,7 @@ class Site:
             'name': {'zh': m['zh'], 'en': m['en']},
             'theme': {'id': theme, 'zh': th[0], 'en': th[1]},
             'gif': {'url': self.url(m['file']), 'file': os.path.basename(src),
-                    'zh_file': zh_file, 'zh_url': self.url('zh/' + urllib.parse.quote(zh_file)), 'width': 480, 'height': 480,
+                    'zh_file': zh_file, 'width': 480, 'height': 480,
                     'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest(), 'transparent': True},
             'pixels': {'grid': G, 'scale': engine.SCALE, 'bbox': bbox,
                        'note': 'bbox = [x0, y0, x1, y1] of all visible pixels over every frame, in grid pixels'},
@@ -184,7 +182,7 @@ class Site:
         alt = html.escape(f"Clawd — {r['name']['en']} ({r['name']['zh']}), {r['frames']['count']}-frame pixel GIF")
         return (f'<article class="card" id="g{nnn}" data-n="{n}" data-slug="{r["slug"]}" data-theme="{r["theme"]["id"]}" '
                 f'data-frames="{r["frames"]["count"]}" data-ms="{r["frames"]["total_ms"]}" tabindex="0">'
-                f'<div class="tile"><img src="zh/{urllib.parse.quote(r["gif"]["zh_file"])}" width="480" height="480" alt="{alt}" '
+                f'<div class="tile"><img src="gifs/{r["gif"]["file"]}" width="480" height="480" alt="{alt}" '
                 f'{"" if eager else "loading=lazy "}decoding="async"></div>'
                 f'<span class="num">{nnn}</span><span class="tick" aria-hidden="true"></span>'
                 f'<a class="cap" href="g/{nnn}-{r["slug"]}.html" draggable="false"><b>{zh}</b><span>{en}</span></a></article>')
@@ -247,7 +245,7 @@ class Site:
 </head><body>
 <nav class="top"><a href="../#/gif/{r['n']}">← Clawd 400</a><span>{nav(prev, '← ' + (f"{prev['n']:03d}" if prev else ''))}{nav(nxt, (f"{nxt['n']:03d}" if nxt else '') + ' →')}</span></nav>
 <main>
-<figure><img src="../zh/{urllib.parse.quote(r['gif']['zh_file'])}" width="480" height="480" alt="Clawd — {en} ({zh})"></figure>
+<figure><img src="../gifs/{r['gif']['file']}" width="480" height="480" alt="Clawd — {en} ({zh})"></figure>
 <section>
 <p class="num">#{nnn} · {html.escape(r['theme']['zh'])} {html.escape(r['theme']['en'])}</p>
 <h1>{zh}</h1><p class="en">{en}</p>
@@ -256,7 +254,7 @@ class Site:
 <dt>Durations</dt><dd>{', '.join(str(d) for d in fr['durations_ms'])} ms</dd>
 <dt>Size</dt><dd>480×480 GIF ({G}×{G} grid ×{engine.SCALE}), {r['gif']['bytes'] / 1024:.1f} KB, transparent</dd>
 <dt>Source</dt><dd>{src}</dd>
-<dt>Data</dt><dd><a href="../api/gifs/{nnn}.json">JSON</a> · <a href="../api/frames/{nnn}.txt">ASCII frames</a> · <a href="../sheets/{nnn}.png">frame sheet</a> · <a href="../zh/{urllib.parse.quote(r['gif']['zh_file'])}" download="{html.escape(r['gif']['zh_file'])}">GIF</a></dd>
+<dt>Data</dt><dd><a href="../api/gifs/{nnn}.json">JSON</a> · <a href="../api/frames/{nnn}.txt">ASCII frames</a> · <a href="../sheets/{nnn}.png">frame sheet</a> · <a href="../gifs/{r['gif']['file']}" download="{html.escape(r['gif']['zh_file'])}">GIF</a></dd>
 <dt>License</dt><dd><a href="{LICENSE['url']}">CC BY 4.0</a> — {html.escape(r['credit'])}</dd>
 </dl>
 </section>
@@ -277,13 +275,13 @@ class Site:
             'endpoints': {
                 'catalog': self.url('api/index.json'), 'gif_json': self.url('api/gifs/{nnn}.json'),
                 'ascii_frames': self.url('api/frames/{nnn}.txt'), 'frame_sheet': self.url('sheets/{nnn}.png'),
-                'gif': self.url('gifs/{file}'), 'gif_zh': self.url('zh/{zh}.gif'), 'page': self.url('g/{nnn}-{slug}.html'), 'all_zip': self.url('downloads/clawd-400.zip'),
+                'gif': self.url('gifs/{file}'), 'page': self.url('g/{nnn}-{slug}.html'), 'all_zip': self.url('downloads/clawd-400.zip'),
                 'openapi': self.url('api/openapi.json'), 'llms': self.url('llms.txt'),
             },
             'themes': [{'id': k, 'zh': v[0], 'en': v[1], 'count': sum(1 for r in recs if r['theme']['id'] == k)} for k, v in THEMES.items()],
             'items': [{'n': r['n'], 'nnn': f"{r['n']:03d}", 'slug': r['slug'], 'zh': r['name']['zh'], 'en': r['name']['en'],
                        'theme': r['theme']['id'], 'frames': r['frames']['count'], 'total_ms': r['frames']['total_ms'],
-                       'gif': r['gif']['url'], 'gif_zh': r['gif']['zh_url'], 'json': r['links']['json'], 'ascii': r['frames']['ascii'],
+                       'gif': r['gif']['url'], 'zh_file': r['gif']['zh_file'], 'json': r['links']['json'], 'ascii': r['frames']['ascii'],
                        'sheet': r['frames']['sheet']['url'], 'page': r['links']['page'], 'keywords': r['keywords']} for r in recs],
         }
         self.write('api/index.json', json.dumps(cat, ensure_ascii=False, indent=1))
@@ -308,7 +306,7 @@ Everything below is static JSON, text or images. No key and no JavaScript needed
 
 ## Get the files
 
-- GIF: `gifs/{{nnn}}_{{slug}}.gif` (the catalog's `gif` field). The same file under its Chinese title: `zh/{{中文名}}.gif` (`gif_zh`)
+- GIF: `gifs/{{nnn}}_{{slug}}.gif` (the catalog's `gif` field). Suggested local file name: the Chinese title, `{{中文名}}.gif` (`zh_file`)
 - [All 400 as one ZIP]({u('downloads/clawd-400.zip')})
 - Human page per GIF: `g/{{nnn}}-{{slug}}.html`
 
@@ -396,7 +394,6 @@ def main():
             p = os.path.join(a.out, name)
             shutil.rmtree(p) if os.path.isdir(p) else os.remove(p)
     os.makedirs(os.path.join(a.out, 'gifs'), exist_ok=True)
-    os.makedirs(os.path.join(a.out, 'zh'), exist_ok=True)
     site = Site(a.out, a.base_url, a.repo_url)
     built = datetime.now(timezone.utc).isoformat(timespec='seconds')
     man = json.load(open(os.path.join(ROOT, 'manifest.json'), encoding='utf-8'))
@@ -406,7 +403,7 @@ def main():
     site.zip_all(recs)
     site.api(recs, built)
     site.index(recs, built)
-    for f in ('app.js', 'app.css', 'detail.css', 'drag-test.html'):
+    for f in ('app.js', 'app.css', 'detail.css'):
         shutil.copyfile(os.path.join(HERE, 'src', f), os.path.join(a.out, f))
     site.write('favicon.svg', favicon())
     og = os.path.join(ROOT, 'films', 'covers', 'og.png')
