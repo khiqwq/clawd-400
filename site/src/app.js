@@ -168,23 +168,11 @@
   }));
 
   // ------------------------------------------------------------------ drag out of the browser
-  const zhUrl = it => 'zh/' + encodeURIComponent(it.z);                   // the GIF under its Chinese title: 一脸问号.gif
+  // Every <img> points at zh/一脸问号.gif, so the browser's own image drag already carries the original GIF bytes
+  // under the Chinese name. Leave the DataTransfer alone: a page-set DownloadURL becomes an async virtual file on
+  // Windows that the desktop accepts but QQ / WeChat reject ("图片拖拽失败").
+  const zhUrl = it => 'zh/' + encodeURIComponent(it.z);
   const themeZh = it => THEME.get(it.t)?.zh || it.t;
-  function dragData(dt, it) {
-    const url = abs(zhUrl(it));
-    dt.effectAllowed = 'copy';
-    dt.setData('DownloadURL', `image/gif:${it.z}:${url}`);                 // Chrome / Edge: drop on the desktop = 一脸问号.gif
-    dt.setData('text/uri-list', url);
-    dt.setData('text/plain', url);
-    dt.setData('text/html', `<img src="${url}" alt="${it.en}" width="480" height="480">`);
-    try { dt.setData('application/x-moz-file-promise-url', url); dt.setData('application/x-moz-file-promise-dest-filename', it.z); } catch { /* not Firefox */ }
-  }
-  grid.addEventListener('dragstart', e => {
-    const card = e.target.closest('.card'); if (!card) return;
-    const img = $('img', card);
-    dragData(e.dataTransfer, BY_N.get(+card.dataset.n));
-    if (e.target !== img) e.dataTransfer.setDragImage(img, img.width / 2, img.height / 2);
-  });
 
   // ------------------------------------------------------------------ ZIP (stored, no compression: GIF/PNG already are)
   const CRC = new Uint32Array(256).map((_, n) => { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; return c >>> 0; });
@@ -396,7 +384,6 @@
     files.push({ name: `${it.zh}/LICENSE.txt`, data: licenseText([it]) });
     saveBlob(makeZip(files), `${it.zh}_逐帧.zip`);
   });
-  $('#vGif').addEventListener('dragstart', e => dragData(e.dataTransfer, V.it));
 
   // ------------------------------------------------------------------ keyboard
   document.addEventListener('keydown', e => {

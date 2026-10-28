@@ -80,6 +80,10 @@ class Site:
         self.pal = pal_names()
         self.rgb2ch = {v[0]: k for k, v in self.pal.items()}
 
+    def ver(self, name):
+        """Cache-busting tag for a source file: Pages serves with a 10-minute max-age."""
+        return hashlib.sha1(open(os.path.join(HERE, 'src', name), 'rb').read()).hexdigest()[:8]
+
     def url(self, rel):
         """Absolute when the base URL is known (the deployed site), relative otherwise."""
         return f'{self.base}/{rel}' if self.base else rel
@@ -183,7 +187,7 @@ class Site:
                 f'<div class="tile"><img src="zh/{urllib.parse.quote(r["gif"]["zh_file"])}" width="480" height="480" alt="{alt}" '
                 f'{"" if eager else "loading=lazy "}decoding="async"></div>'
                 f'<span class="num">{nnn}</span><span class="tick" aria-hidden="true"></span>'
-                f'<a class="cap" href="g/{nnn}-{r["slug"]}.html"><b>{zh}</b><span>{en}</span></a></article>')
+                f'<a class="cap" href="g/{nnn}-{r["slug"]}.html" draggable="false"><b>{zh}</b><span>{en}</span></a></article>')
 
     def index(self, recs, built):
         parts, cur = [], None
@@ -212,6 +216,8 @@ class Site:
                    .replace('{{JSONLD}}', json.dumps(ld, ensure_ascii=False))
                    .replace('{{REPO}}', html.escape(self.repo or '#'))
                    .replace('{{OG}}', html.escape(self.url('og.png')))
+                   .replace('href="app.css"', f'href="app.css?v={self.ver("app.css")}"')
+                   .replace('src="app.js"', f'src="app.js?v={self.ver("app.js")}"')
                    .replace('{{ZIPMB}}', f"{os.path.getsize(os.path.join(self.out, 'downloads', 'clawd-400.zip')) / 1e6:.0f}"))
         self.write('index.html', page)
 
